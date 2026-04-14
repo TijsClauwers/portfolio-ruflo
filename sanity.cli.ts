@@ -6,4 +6,7 @@ export default defineCliConfig({
     dataset: process.env.NEXT_PUBLIC_SANITY_DATASET || 'production',
   },
   studioHost: 'lunevo',
+  deployment: {
+    appId: 'jametx0w127npjxlp05jflgr',
+  },
 })
