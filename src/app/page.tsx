@@ -7,7 +7,6 @@ import Contact from '@/components/Contact'
 import Footer from '@/components/Footer'
 import { client, projectsQuery, servicesQuery } from '@/sanity/client'
 
-export const revalidate = 60
 
 const marqueeItems = [
   'Next.js',
