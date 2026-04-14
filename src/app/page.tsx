@@ -1,0 +1,75 @@
+import Navbar from '@/components/Navbar'
+import Hero from '@/components/Hero'
+import Services from '@/components/Services'
+import Portfolio from '@/components/Portfolio'
+import SocialProof from '@/components/SocialProof'
+import Contact from '@/components/Contact'
+import Footer from '@/components/Footer'
+import { client, projectsQuery, servicesQuery } from '@/sanity/client'
+
+export const revalidate = 60
+
+const marqueeItems = [
+  'Next.js',
+  'Tailwind CSS',
+  'TypeScript',
+  'SEO-geoptimaliseerd',
+  'Maatwerk CMS',
+  'Mobiel-first',
+  'Snelle laadtijden',
+  'Framer Motion',
+  'Maatwerk Design',
+  'Performance',
+  'Toegankelijkheid',
+  'Three.js',
+]
+
+function MarqueeStrip() {
+  const repeated = [...marqueeItems, ...marqueeItems]
+  return (
+    <div className="py-5 border-y border-white/5 bg-slate-900/30 overflow-hidden">
+      <div className="flex animate-marquee whitespace-nowrap">
+        {repeated.map((item, i) => (
+          <span
+            key={i}
+            className="inline-flex items-center gap-3 mx-6 text-xs font-medium text-slate-500 uppercase tracking-widest"
+          >
+            <span className="w-1 h-1 rounded-full bg-indigo-500/60 flex-shrink-0" />
+            {item}
+          </span>
+        ))}
+      </div>
+    </div>
+  )
+}
+
+export default async function HomePage() {
+  const projectId = process.env.NEXT_PUBLIC_SANITY_PROJECT_ID
+
+  let projects = []
+  let services = []
+
+  if (projectId) {
+    try {
+      ;[projects, services] = await Promise.all([
+        client.fetch(projectsQuery),
+        client.fetch(servicesQuery),
+      ])
+    } catch {
+      // Sanity not configured yet — components render with empty data
+    }
+  }
+
+  return (
+    <main>
+      <Navbar />
+      <Hero />
+      <MarqueeStrip />
+      <Services services={services} />
+      <Portfolio projects={projects} />
+      <SocialProof />
+      <Contact />
+      <Footer />
+    </main>
+  )
+}
