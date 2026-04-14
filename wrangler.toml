@@ -1,4 +1,0 @@
-name = "portfolio-ruflo"
-compatibility_date = "2026-04-14"
-
-[env.production]
