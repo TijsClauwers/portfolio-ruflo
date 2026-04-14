@@ -65,8 +65,8 @@ export default function Services({ services }: { services: SanityService[] }) {
 
         {services.length === 0 ? (
           <p className="text-center text-slate-500 text-sm">
-            Geen diensten gevonden. Voeg diensten toe via het CMS op{' '}
-            <a href="/studio" className="text-indigo-400 underline">/studio</a>.
+            Geen diensten gevonden. Voeg diensten toe via{' '}
+            <a href="https://sanity.io/manage" target="_blank" rel="noopener noreferrer" className="text-indigo-400 underline">sanity.io/manage</a>.
           </p>
         ) : (
           <div className="grid sm:grid-cols-2 gap-5">
