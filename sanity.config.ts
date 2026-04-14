@@ -4,8 +4,8 @@ import { projectSchema } from './src/sanity/schemas/projectSchema'
 import { serviceSchema } from './src/sanity/schemas/serviceSchema'
 
 export default defineConfig({
-  projectId: process.env.NEXT_PUBLIC_SANITY_PROJECT_ID!,
-  dataset: process.env.NEXT_PUBLIC_SANITY_DATASET || 'production',
+  projectId: 'elja62b4',
+  dataset: 'production',
   plugins: [structureTool()],
   schema: {
     types: [projectSchema, serviceSchema],
