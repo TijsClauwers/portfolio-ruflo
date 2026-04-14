@@ -9,12 +9,12 @@ const nextConfig = {
   },
   trailingSlash: true,
   webpack: (config) => {
-    // Use project React (19.2.5) for @sanity/vision instead of Next.js bundled canary
-    // which doesn't export useEffectEvent
+    // Shim that proxies Next.js's own bundled React but adds useEffectEvent,
+    // which @sanity/vision requires. Uses the same React instance to avoid
+    // dual-instance context errors.
     config.resolve.alias = {
       ...config.resolve.alias,
-      react: path.resolve(__dirname, 'node_modules/react'),
-      'react-dom': path.resolve(__dirname, 'node_modules/react-dom'),
+      react: path.resolve(__dirname, 'src/react-shim.js'),
     }
     return config
   },
