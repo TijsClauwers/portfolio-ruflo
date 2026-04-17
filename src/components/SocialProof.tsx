@@ -1,7 +1,7 @@
 'use client'
 
 import { motion } from 'framer-motion'
-import { MapPin, MessageCircle, EuroIcon } from 'lucide-react'
+import { MapPin, MessageCircle, EuroIcon, X, Check } from 'lucide-react'
 
 const pillars = [
   {
@@ -77,6 +77,60 @@ export default function SocialProof() {
             )
           })}
         </div>
+
+        {/* Next.js vs WordPress comparison */}
+        <motion.div
+          initial={{ opacity: 0, y: 24 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: '-60px' }}
+          transition={{ duration: 0.6 }}
+          className="mb-10"
+        >
+          <p className="text-center text-indigo-400 text-sm font-semibold uppercase tracking-widest mb-3">
+            Waarom geen WordPress?
+          </p>
+          <h3 className="text-center text-2xl sm:text-3xl font-bold mb-8">
+            Next.js vs WordPress
+          </h3>
+          <div className="grid sm:grid-cols-2 gap-4">
+            {/* WordPress column */}
+            <div className="bg-slate-900/50 border border-white/5 rounded-2xl p-6 flex flex-col gap-3">
+              <p className="text-sm font-semibold text-slate-400 uppercase tracking-widest mb-1">WordPress</p>
+              {[
+                'Standaard thema\'s — iedereen herkent de template',
+                'PHP verwerkt elke bezoeker opnieuw → trager',
+                '43% van alle websites draait WordPress — het #1 doelwit voor aanvallen',
+                'Plugins bevatten regelmatig beveiligingslekken',
+                'Voortdurend updates nodig om veilig te blijven',
+              ].map((item) => (
+                <div key={item} className="flex items-start gap-2.5">
+                  <X size={14} className="text-red-400/70 flex-shrink-0 mt-0.5" />
+                  <span className="text-sm text-slate-400 leading-snug">{item}</span>
+                </div>
+              ))}
+            </div>
+
+            {/* Next.js column */}
+            <div
+              className="border border-indigo-500/20 rounded-2xl p-6 flex flex-col gap-3"
+              style={{ background: 'linear-gradient(160deg, rgba(99,102,241,0.08) 0%, transparent 60%), rgba(15,23,42,0.5)' }}
+            >
+              <p className="text-sm font-semibold text-indigo-400 uppercase tracking-widest mb-1">Next.js (onze aanpak)</p>
+              {[
+                'Volledig op maat gebouwd — geen template te herkennen',
+                'Statische bestanden via CDN → wereldwijd razendsnel',
+                'Geen database of CMS-code zichtbaar in productie',
+                'Kleinere aanvalsoppervlak, geen plugin-kwetsbaarheden',
+                'Automatische deploys bij content­wijziging, geen manueel beheer',
+              ].map((item) => (
+                <div key={item} className="flex items-start gap-2.5">
+                  <Check size={14} className="text-emerald-400 flex-shrink-0 mt-0.5" />
+                  <span className="text-sm text-slate-300 leading-snug">{item}</span>
+                </div>
+              ))}
+            </div>
+          </div>
+        </motion.div>
 
         <motion.div
           initial={{ opacity: 0, y: 24 }}

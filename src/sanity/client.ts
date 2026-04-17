@@ -13,18 +13,6 @@ export function urlFor(source: object) {
   return builder.image(source as Parameters<typeof builder.image>[0])
 }
 
-export const projectsQuery = `*[_type == "project"] | order(order asc) {
-  _id,
-  title,
-  category,
-  description,
-  tech,
-  "imageUrl": image.asset->url,
-  href,
-  external,
-  placeholder
-}`
-
 export const servicesQuery = `*[_type == "service"] | order(order asc) {
   _id,
   title,

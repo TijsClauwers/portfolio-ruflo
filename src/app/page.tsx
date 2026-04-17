@@ -1,11 +1,10 @@
 import Navbar from '@/components/Navbar'
 import Hero from '@/components/Hero'
 import Services from '@/components/Services'
-import Portfolio from '@/components/Portfolio'
 import SocialProof from '@/components/SocialProof'
 import Contact from '@/components/Contact'
 import Footer from '@/components/Footer'
-import { client, projectsQuery, servicesQuery } from '@/sanity/client'
+import { client, servicesQuery } from '@/sanity/client'
 
 
 const marqueeItems = [
@@ -45,17 +44,13 @@ function MarqueeStrip() {
 export default async function HomePage() {
   const projectId = process.env.NEXT_PUBLIC_SANITY_PROJECT_ID
 
-  let projects = []
   let services = []
 
   if (projectId) {
     try {
-      ;[projects, services] = await Promise.all([
-        client.fetch(projectsQuery),
-        client.fetch(servicesQuery),
-      ])
+      services = await client.fetch(servicesQuery)
     } catch {
-      // Sanity not configured yet — components render with empty data
+      // Sanity not configured yet — component renders with empty data
     }
   }
 
@@ -65,7 +60,6 @@ export default async function HomePage() {
       <Hero />
       <MarqueeStrip />
       <Services services={services} />
-      <Portfolio projects={projects} />
       <SocialProof />
       <Contact />
       <Footer />

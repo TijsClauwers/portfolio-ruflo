@@ -213,10 +213,10 @@ export default function Hero() {
               <ArrowRight size={16} />
             </a>
             <a
-              href="#portfolio"
+              href="#diensten"
               className="flex items-center gap-2 bg-white/5 hover:bg-white/10 border border-white/10 text-white font-medium px-6 py-3 rounded-xl transition-colors"
             >
-              Ons werk bekijken
+              Onze aanpak bekijken
             </a>
           </motion.div>
         </div>
