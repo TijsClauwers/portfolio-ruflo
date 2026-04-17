@@ -1,6 +1,7 @@
 import Navbar from '@/components/Navbar'
 import Hero from '@/components/Hero'
 import Services from '@/components/Services'
+import HowItWorks from '@/components/HowItWorks'
 import SocialProof from '@/components/SocialProof'
 import Contact from '@/components/Contact'
 import Footer from '@/components/Footer'
@@ -60,6 +61,7 @@ export default async function HomePage() {
       <Hero />
       <MarqueeStrip />
       <Services services={services} />
+      <HowItWorks />
       <SocialProof />
       <Contact />
       <Footer />
