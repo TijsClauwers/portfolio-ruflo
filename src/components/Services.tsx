@@ -1,7 +1,7 @@
 'use client'
 
 import { motion } from 'framer-motion'
-import { Palette, LayoutDashboard, Shield, Wrench } from 'lucide-react'
+import { Palette, LayoutDashboard, Shield, Wrench, Search } from 'lucide-react'
 
 type SanityService = {
   _id: string
@@ -9,8 +9,38 @@ type SanityService = {
   description: string
   tags: string[]
   colorTheme: 'indigo' | 'violet' | 'emerald' | 'orange'
-  iconName: 'Palette' | 'LayoutDashboard' | 'Shield' | 'Wrench'
+  iconName: 'Palette' | 'LayoutDashboard' | 'Shield' | 'Wrench' | 'Search'
 }
+
+const defaultServices: SanityService[] = [
+  {
+    _id: 'default-1',
+    title: 'Maatwerk CMS',
+    description:
+      'Beheer uw eigen content via een eenvoudig dashboard. Teksten, afbeeldingen en pagina\'s aanpassen wanneer u wil — geen technische kennis nodig.',
+    tags: ['Sanity CMS', 'Eigen beheer', 'Geen technische kennis'],
+    colorTheme: 'orange',
+    iconName: 'LayoutDashboard',
+  },
+  {
+    _id: 'default-2',
+    title: 'SEO-geoptimaliseerd',
+    description:
+      'Next.js-sites laden razendsnel en scoren uitstekend op Google. Wij implementeren structured data, correcte meta-tags en een sitemap voor maximale vindbaarheid.',
+    tags: ['Structured data', 'Meta-tags', 'Sitemap', 'Core Web Vitals'],
+    colorTheme: 'indigo',
+    iconName: 'Search',
+  },
+  {
+    _id: 'default-3',
+    title: 'Website beheer',
+    description:
+      'Geen zorgen over updates, beveiliging of downtime. Wij houden alles draaiende zodat u zich volledig op uw zaak kunt focussen.',
+    tags: ['Onderhoud', 'Monitoring', 'Geen zorgen'],
+    colorTheme: 'emerald',
+    iconName: 'Wrench',
+  },
+]
 
 const colorMap = {
   indigo: {
@@ -39,9 +69,11 @@ const colorMap = {
   },
 }
 
-const iconMap = { Palette, LayoutDashboard, Shield, Wrench }
+const iconMap = { Palette, LayoutDashboard, Shield, Wrench, Search }
 
 export default function Services({ services }: { services: SanityService[] }) {
+  const displayServices = services.length > 0 ? services : defaultServices
+
   return (
     <section id="diensten" className="py-24 px-4 sm:px-6">
       <div className="max-w-6xl mx-auto">
@@ -63,14 +95,8 @@ export default function Services({ services }: { services: SanityService[] }) {
           </p>
         </motion.div>
 
-        {services.length === 0 ? (
-          <p className="text-center text-slate-500 text-sm">
-            Geen diensten gevonden. Voeg diensten toe via{' '}
-            <a href="https://sanity.io/manage" target="_blank" rel="noopener noreferrer" className="text-indigo-400 underline">sanity.io/manage</a>.
-          </p>
-        ) : (
-          <div className="grid sm:grid-cols-2 gap-5">
-            {services.map((service, i) => {
+        <div className="grid sm:grid-cols-2 gap-5">
+            {displayServices.map((service, i) => {
               const colors = colorMap[service.colorTheme] ?? colorMap.indigo
               const Icon = iconMap[service.iconName] ?? Palette
               return (
@@ -106,7 +132,6 @@ export default function Services({ services }: { services: SanityService[] }) {
               )
             })}
           </div>
-        )}
       </div>
     </section>
   )
