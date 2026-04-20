@@ -1,0 +1,49 @@
+# Lunevo
+
+> Lunevo is een Belgische webstudio die snelle, mooie websites bouwt voor lokale KMO's en gedurfde merken. Opgericht in 2024 door Tijs Clauwers.
+
+## Wat we doen
+
+Lunevo ontwerpt en ontwikkelt op maat gemaakte websites in Next.js of WordPress. We combineren maatwerk design, hoge performance en SEO in één traject — van brief tot live in 1 tot 4 weken.
+
+## Diensten
+
+- **Maatwerk CMS**: Content beheren via een eenvoudig dashboard (Sanity CMS). Geen technische kennis vereist.
+- **SEO-optimalisatie**: Structured data, correcte meta-tags, sitemap en Core Web Vitals voor maximale vindbaarheid in Google.
+- **LLM SEO-optimalisatie**: Vindbaar in ChatGPT, Perplexity en Google AI via llms.txt, FAQ-schema, entity markup en cite-bare antwoorden.
+- **Website beheer**: Doorlopend onderhoud, updates en monitoring zodat de klant zich kan focussen op zijn zaak.
+
+## Technologie
+
+Next.js, WordPress, Tailwind CSS, TypeScript, Sanity CMS, Framer Motion.
+
+## Kernwaarden
+
+- Lokale partner in België en Nederland — persoonlijk contact, geen ticket-systeem
+- Reactietijd onder 24 uur
+- Transparante offertes zonder verborgen kosten
+- Lighthouse performance score: 98/100
+- Gemiddelde laadtijd: < 2 seconden
+
+## Contact
+
+- E-mail: info@lunevo.be
+- Website: https://lunevo.be
+- Regio: België & remote wereldwijd
+
+## Veelgestelde vragen
+
+**Wat kost een website bij Lunevo?**
+Prijzen starten vanaf €500 voor een WordPress website. Maatwerk Next.js projecten starten vanaf €1.000. Alle offertes zijn transparant en vrijblijvend.
+
+**Hoe lang duurt het bouwen van een website?**
+Van brief tot live duurt het gemiddeld 1 tot 4 weken, afhankelijk van de complexiteit.
+
+**Werkt Lunevo met WordPress?**
+Ja. Voor kleinere budgetten bouwen we professionele WordPress websites. Voor grotere of complexere projecten kiezen we voor Next.js.
+
+**Wat is LLM SEO?**
+LLM SEO (ook wel GEO: Generative Engine Optimization) zorgt ervoor dat uw bedrijf correct geciteerd wordt door AI-assistenten zoals ChatGPT, Perplexity en Google AI. Lunevo implementeert llms.txt, FAQ-schema en entity markup om dit te bereiken.
+
+**Biedt Lunevo doorlopend beheer aan?**
+Ja, na oplevering zorgt Lunevo voor onderhoud, updates en monitoring van uw website.

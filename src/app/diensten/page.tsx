@@ -8,9 +8,15 @@ import { client, servicesQuery } from '@/sanity/client'
 import type { Metadata } from 'next'
 
 export const metadata: Metadata = {
-  title: 'Diensten | Lunevo',
+  title: 'Diensten',
   description:
-    'Ontdek wat Lunevo voor uw bedrijf kan doen: maatwerk websites, SEO, CMS, website beheer en AI-zichtbaarheid (LLM SEO).',
+    'Lunevo bouwt maatwerk websites in Next.js of WordPress, optimaliseert voor Google én voor AI-assistenten (LLM SEO / GEO). Bekijk alle diensten en vraag een offerte aan.',
+  alternates: { canonical: 'https://lunevo.be/diensten' },
+  openGraph: {
+    title: 'Diensten | Lunevo',
+    description: 'Next.js, WordPress, SEO en LLM SEO voor uw bedrijf.',
+    url: 'https://lunevo.be/diensten',
+  },
 }
 
 function PageHero() {

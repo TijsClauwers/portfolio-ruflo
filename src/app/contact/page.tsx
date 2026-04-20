@@ -4,9 +4,15 @@ import Footer from '@/components/Footer'
 import type { Metadata } from 'next'
 
 export const metadata: Metadata = {
-  title: 'Contact | Lunevo',
+  title: 'Contact',
   description:
-    'Neem contact op met Lunevo voor een gratis kennismakingsgesprek. Wij antwoorden binnen de 24 uur.',
+    'Neem contact op met Lunevo voor een gratis kennismakingsgesprek. Via WhatsApp, e-mail of het offerte-formulier. Wij antwoorden binnen de 24 uur.',
+  alternates: { canonical: 'https://lunevo.be/contact' },
+  openGraph: {
+    title: 'Contact | Lunevo',
+    description: 'Gratis kennismakingsgesprek. Reactietijd onder 24 uur.',
+    url: 'https://lunevo.be/contact',
+  },
 }
 
 function PageHero() {

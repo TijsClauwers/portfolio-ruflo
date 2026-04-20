@@ -6,9 +6,15 @@ import { ArrowRight } from 'lucide-react'
 import type { Metadata } from 'next'
 
 export const metadata: Metadata = {
-  title: 'Over ons | Lunevo',
+  title: 'Over ons',
   description:
-    'Lunevo is een Belgisch webbureau dat snelle, mooie websites bouwt voor lokale KMO\'s en gedurfde merken. Persoonlijk contact, transparante prijzen.',
+    'Lunevo is een Belgische webstudio opgericht door Tijs Clauwers. Persoonlijk contact, transparante prijzen en directe communicatie — geen groot bureau, wél topkwaliteit.',
+  alternates: { canonical: 'https://lunevo.be/over-ons' },
+  openGraph: {
+    title: 'Over ons | Lunevo',
+    description: 'Belgische webstudio. Lokale partner, top-bureau kwaliteit.',
+    url: 'https://lunevo.be/over-ons',
+  },
 }
 
 function PageHero() {
