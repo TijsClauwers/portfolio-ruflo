@@ -317,14 +317,14 @@ function Process() {
                   />
                 </div>
                 <span className="font-mono-label" style={{ marginTop: 4 }}>{s.dur}</span>
-                <h4
+                <h3
                   style={{
                     fontFamily: 'var(--font-bricolage), sans-serif',
                     fontWeight: 500, fontSize: 22, letterSpacing: '-0.02em',
                   }}
                 >
                   {s.title}
-                </h4>
+                </h3>
                 <p style={{ fontSize: 14, lineHeight: 1.55, color: 'var(--ink-2)', maxWidth: '30ch' }}>
                   {s.desc}
                 </p>
@@ -400,14 +400,14 @@ function Why() {
               >
                 {p.glyph}
               </div>
-              <h4
+              <h3
                 style={{
                   fontFamily: 'var(--font-bricolage), sans-serif',
                   fontWeight: 500, fontSize: 22, letterSpacing: '-0.02em',
                 }}
               >
                 {p.title}
-              </h4>
+              </h3>
               <p style={{ fontSize: 14.5, lineHeight: 1.6, color: 'var(--ink-2)', flex: 1 }}>
                 {p.desc}
               </p>
