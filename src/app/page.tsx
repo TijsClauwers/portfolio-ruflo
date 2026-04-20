@@ -107,7 +107,7 @@ function MarqueeStrip() {
 /* ── Services ────────────────────────────────────────────── */
 const services = [
   {
-    idx: '01 / 04',
+    idx: '01 / 05',
     glyph: 'C',
     title: <>Maatwerk <em style={{ fontStyle: 'italic', color: 'var(--accent)' }}>CMS</em></>,
     desc: 'Beheer uw eigen content via een eenvoudig dashboard. Teksten, afbeeldingen en pagina\'s aanpassen wanneer u wil — geen technische kennis nodig.',
@@ -115,7 +115,15 @@ const services = [
     flag: null,
   },
   {
-    idx: '02 / 04',
+    idx: '02 / 05',
+    glyph: 'W',
+    title: <><em style={{ fontStyle: 'italic', color: 'var(--accent)' }}>WordPress</em> website</>,
+    desc: 'Een professionele website op WordPress — ideaal voor kleinere budgetten. Snel online, makkelijk te beheren en volledig op maat van uw merk.',
+    tags: ['WordPress', 'Klein budget', 'Snel live'],
+    flag: null,
+  },
+  {
+    idx: '03 / 05',
     glyph: 'S',
     title: <><em style={{ fontStyle: 'italic', color: 'var(--accent)' }}>SEO-</em>geoptimaliseerd</>,
     desc: 'Next.js-sites laden razendsnel en scoren uitstekend op Google. Wij implementeren structured data, correcte meta-tags en een sitemap voor maximale vindbaarheid.',
@@ -123,7 +131,7 @@ const services = [
     flag: null,
   },
   {
-    idx: '03 / 04',
+    idx: '04 / 05',
     glyph: '∞',
     title: <><em style={{ fontStyle: 'italic', color: 'var(--accent)' }}>LLM</em> SEO-optimalisatie</>,
     desc: 'Nu ook vindbaar in ChatGPT, Perplexity en Google AI. Wij structureren uw content met llms.txt, FAQ-schema en cite-bare antwoorden zodat AI-modellen uw merk correct citeren.',
@@ -131,8 +139,8 @@ const services = [
     flag: 'Nieuw',
   },
   {
-    idx: '04 / 04',
-    glyph: 'W',
+    idx: '05 / 05',
+    glyph: '↻',
     title: <>Website <em style={{ fontStyle: 'italic', color: 'var(--accent)' }}>beheer</em></>,
     desc: 'Geen zorgen over updates, beveiliging of downtime. Wij houden alles draaiende zodat u zich volledig op uw zaak kunt focussen.',
     tags: ['Onderhoud', 'Monitoring', 'Geen zorgen'],
@@ -280,7 +288,7 @@ function Process() {
         <SecHead
           eyebrow="§ 02 — Proces"
           title={<>Hoe werkt<br /><span style={{ fontStyle: 'italic' }}>het?</span></>}
-          right="Vier stappen, ca. 4–8 weken van brief tot live. Helder, persoonlijk en zonder verrassingen."
+          right="Vier stappen, ca. 1–4 weken van brief tot live. Helder, persoonlijk en zonder verrassingen."
         />
 
         <div style={{ position: 'relative' }}>
