@@ -45,50 +45,46 @@ export default function Hero() {
                 background: 'var(--accent)', boxShadow: '0 0 0 4px rgba(255,158,59,.2)',
               }}
             />
-            Beschikbaar voor Q2 / Q3 2026
+            Beschikbaar voor projecten
           </span>
           <span className="font-mono-label">Studio · Belgium · Est. 2024</span>
         </div>
 
-        {/* Headline */}
-        <h1
-          className="font-display"
-          style={{
-            fontWeight: 500,
-            fontSize: 'clamp(64px, 11vw, 160px)',
-            position: 'relative', zIndex: 2,
-          }}
-        >
-          Websites<br />
-          die mensen<br />
-          <span
-            style={{
-              color: 'var(--accent)', fontWeight: 400, fontStyle: 'italic',
-            }}
-          >
-            bijblijven
-          </span>
-          <span
-            style={{
-              display: 'inline-block', width: '0.18em', height: '0.18em',
-              borderRadius: '50%', background: 'var(--accent)', marginLeft: '0.05em',
-              verticalAlign: 'middle',
-            }}
-          />
-        </h1>
-
-        {/* Meta row */}
+        {/* Two-column layout: headline+copy left, cards right */}
         <div
           style={{
             display: 'grid',
-            gridTemplateColumns: '1fr auto',
-            gap: '40px 60px',
-            marginTop: 48,
+            gridTemplateColumns: '1fr clamp(280px, 30vw, 380px)',
+            gap: '0 60px',
+            marginTop: 0,
             position: 'relative', zIndex: 2,
+            alignItems: 'start',
           }}
         >
+          {/* Left: headline + copy */}
           <div>
-            <p style={{ fontSize: 18, lineHeight: 1.6, color: 'var(--ink-2)', maxWidth: '46ch' }}>
+            <h1
+              className="font-display"
+              style={{
+                fontWeight: 500,
+                fontSize: 'clamp(64px, 11vw, 160px)',
+              }}
+            >
+              Websites<br />
+              die mensen<br />
+              <span style={{ color: 'var(--accent)', fontWeight: 400, fontStyle: 'italic' }}>
+                bijblijven
+              </span>
+              <span
+                style={{
+                  display: 'inline-block', width: '0.18em', height: '0.18em',
+                  borderRadius: '50%', background: 'var(--accent)', marginLeft: '0.05em',
+                  verticalAlign: 'middle',
+                }}
+              />
+            </h1>
+
+            <p style={{ fontSize: 18, lineHeight: 1.6, color: 'var(--ink-2)', maxWidth: '46ch', marginTop: 36 }}>
               Van lokale KMO&apos;s tot gedurfde merken — <strong style={{ color: 'var(--ink)', fontWeight: 600 }}>wij bouwen snelle, mooie digitale
               ervaringen</strong> op maat van uw verhaal. Ontwerp, code en vindbaarheid in één hand.
             </p>
@@ -127,9 +123,9 @@ export default function Hero() {
             {/* Stats */}
             <div style={{ display: 'flex', gap: 40, marginTop: 40 }}>
               {[
-                { v: '<2s',     l: 'Gemiddelde laadtijd'     },
-                { v: '98/100',  l: 'Lighthouse performance'  },
-                { v: '24u',     l: 'Reactietijd'             },
+                { v: '<2s',    l: 'Gemiddelde laadtijd'    },
+                { v: '98/100', l: 'Lighthouse performance' },
+                { v: '24u',    l: 'Reactietijd'            },
               ].map((s) => (
                 <div key={s.l} style={{ display: 'flex', flexDirection: 'column', gap: 4 }}>
                   <span
@@ -147,13 +143,8 @@ export default function Hero() {
             </div>
           </div>
 
-          {/* Feature cards */}
-          <div
-            style={{
-              display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 12,
-              alignSelf: 'start', width: 'clamp(280px, 30vw, 380px)',
-            }}
-          >
+          {/* Right: feature cards — flush to top */}
+          <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 12 }}>
             {/* Performance */}
             <div
               style={{
@@ -194,7 +185,7 @@ export default function Hero() {
               ))}
             </div>
 
-            {/* Mobile */}
+            {/* Mobile-first */}
             <div
               style={{
                 background: 'var(--bg-2)', border: '1px solid var(--rule-2)',
@@ -202,7 +193,7 @@ export default function Hero() {
                 flexDirection: 'column', alignItems: 'center', gap: 10,
               }}
             >
-              <span style={{ fontSize: 11, fontWeight: 500, color: 'var(--ink-2)', alignSelf: 'flex-start' }}>Mobiel</span>
+              <span style={{ fontSize: 11, fontWeight: 500, color: 'var(--ink-2)', alignSelf: 'flex-start' }}>Mobiel-first</span>
               <div
                 style={{
                   width: 36, height: 52, border: '1.5px solid rgba(255,158,59,.3)',
