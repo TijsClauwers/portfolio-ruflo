@@ -1,5 +1,6 @@
 'use client'
 
+import { useState } from 'react'
 import Navbar from '@/components/Navbar'
 import Hero from '@/components/Hero'
 
@@ -107,28 +108,60 @@ function MarqueeStrip() {
 /* ── Services ────────────────────────────────────────────── */
 const services = [
   {
-    idx: '01 / 05',
+    idx: '01 / 04',
     glyph: 'C',
     title: <>Maatwerk <em style={{ fontStyle: 'italic', color: 'var(--accent)' }}>CMS</em></>,
     desc: 'Beheer uw eigen content via een eenvoudig dashboard. Teksten, afbeeldingen en pagina\'s aanpassen wanneer u wil — geen technische kennis nodig.',
-    tags: ['Sanity CMS', 'Eigen beheer', 'Geen tech-kennis'],
+    tags: ['Sanity CMS', 'WordPress', 'Eigen beheer'],
     flag: null,
+    detail: {
+      heading: 'Uw website, uw controle',
+      why: 'Stel: u verhoogt uw prijzen, voegt een nieuwe dienst toe of wil een foto aanpassen. Zonder CMS moet u elke keer een ontwikkelaar bellen — en betalen. Met een CMS doet u het zelf, in enkele seconden, alsof u een Word-document aanpast.',
+      bullets: [
+        'Pas teksten, prijzen en foto\'s zelf aan — zonder technische kennis',
+        'Kies tussen Sanity (modern, snel) of WordPress (vertrouwd, uitgebreid)',
+        'Bespaar honderden euro\'s per jaar aan onnodige aanpassingen',
+        'Altijd controle over uw eigen website en content',
+      ],
+    },
   },
   {
     idx: '02 / 04',
     glyph: 'S',
     title: <><em style={{ fontStyle: 'italic', color: 'var(--accent)' }}>SEO-</em>geoptimaliseerd</>,
-    desc: 'Next.js-sites laden razendsnel en scoren uitstekend op Google. Wij implementeren structured data, correcte meta-tags en een sitemap voor maximale vindbaarheid.',
-    tags: ['Structured data', 'Meta-tags', 'Sitemap', 'Core Web Vitals'],
+    desc: 'Uw website gevonden door de juiste mensen op Google. Wij zorgen voor een technisch perfecte basis zodat u organisch groeit.',
+    tags: ['Google', 'Structured data', 'Core Web Vitals'],
     flag: null,
+    detail: {
+      heading: 'Gevonden worden terwijl u slaapt',
+      why: '93% van alle online ervaringen begint met een zoekmachine. Als uw website niet op pagina 1 van Google staat, bent u voor de meeste potentiële klanten praktisch onzichtbaar. SEO lost dat op — structureel en duurzaam.',
+      bullets: [
+        'Klanten zoeken actief naar wat u aanbiedt — wij zorgen dat ze u vinden',
+        'Razendsnel ladende website = betere Google-positie én gelukkigere bezoekers',
+        'Geen maandelijkse advertentiekosten: organisch verkeer is gratis',
+        'Technisch correcte structuur zodat Google elke pagina begrijpt',
+        'Resultaten die maanden en jaren blijven werken',
+      ],
+    },
   },
   {
     idx: '03 / 04',
     glyph: '∞',
     title: <><em style={{ fontStyle: 'italic', color: 'var(--accent)' }}>LLM</em> SEO-optimalisatie</>,
-    desc: 'Nu ook vindbaar in ChatGPT, Perplexity en Google AI. Wij structureren uw content met llms.txt, FAQ-schema en cite-bare antwoorden zodat AI-modellen uw merk correct citeren.',
-    tags: ['llms.txt', 'Answer engine', 'Entity markup', 'GEO'],
+    desc: 'Nu ook vindbaar in ChatGPT, Perplexity en Google AI. De nieuwe generatie zoeken — wees er vroeg bij.',
+    tags: ['ChatGPT', 'Google AI', 'Perplexity'],
     flag: 'Nieuw',
+    detail: {
+      heading: 'De toekomst van zoeken is hier',
+      why: 'Steeds meer mensen stellen vragen aan ChatGPT, Google AI of Perplexity in plaats van zelf te zoeken. Zij vragen: "Welk webbureau in België is goed voor kleine bedrijven?" — en de AI geeft direct een aanbeveling. Als uw bedrijf daar niet bij staat, mist u die klant volledig.',
+      bullets: [
+        'Uw bedrijf wordt aanbevolen door ChatGPT, Perplexity en Google AI',
+        'Vroeg instappen = grote voorsprong op concurrenten die dit nog niet doen',
+        'AI-modellen citeren uw merk correct en positief',
+        'Speciaal llms.txt-bestand en FAQ-structuur die AI-assistenten begrijpen',
+        'Miljoenen mensen gebruiken dagelijks AI als zoekmachine — wees zichtbaar',
+      ],
+    },
   },
   {
     idx: '04 / 04',
@@ -137,8 +170,152 @@ const services = [
     desc: 'Geen zorgen over updates, beveiliging of downtime. Wij houden alles draaiende zodat u zich volledig op uw zaak kunt focussen.',
     tags: ['Onderhoud', 'Monitoring', 'Geen zorgen'],
     flag: null,
+    detail: {
+      heading: 'Uw website in goede handen',
+      why: 'Een website die offline gaat, gehackt wordt of traag laadt kost u klanten én vertrouwen. De meeste problemen ontstaan door verwaarloosde updates of ontbrekende beveiliging. Wij voorkomen dat — proactief, maand na maand.',
+      bullets: [
+        'Nooit onverwacht offline: wij monitoren uw site 24/7',
+        'Automatische updates voor veiligheid en snelheid',
+        'Bij problemen reageren wij binnen de dag',
+        'U focust op uw zaak — wij zorgen voor de techniek',
+        'Eén vast maandelijks bedrag, geen verrassingen',
+      ],
+    },
   },
 ]
+
+function ServiceCard({ s }: { s: typeof services[number] }) {
+  const [open, setOpen] = useState(false)
+
+  return (
+    <article
+      style={{
+        background: 'var(--bg-2)',
+        border: `1px solid ${open ? 'rgba(255,158,59,.35)' : 'var(--rule-2)'}`,
+        borderRadius: 20,
+        padding: '28px 28px 24px',
+        display: 'flex', flexDirection: 'column', gap: 16,
+        transition: 'border-color .2s',
+        position: 'relative', overflow: 'hidden',
+      }}
+    >
+      <div>
+        <span className="font-mono-label">{s.idx}</span>
+        {s.flag && (
+          <span
+            style={{
+              position: 'absolute', top: 28, right: 28,
+              display: 'inline-flex', alignItems: 'center',
+              padding: '3px 9px', background: 'var(--accent)', color: 'var(--bg)',
+              borderRadius: 999, fontSize: 10, fontWeight: 600,
+              letterSpacing: '.08em', textTransform: 'uppercase',
+              lineHeight: 1,
+            }}
+          >
+            {s.flag}
+          </span>
+        )}
+      </div>
+
+      <div
+        style={{
+          width: 44, height: 44, borderRadius: 12,
+          background: 'linear-gradient(135deg, rgba(255,158,59,.18), rgba(255,158,59,.04))',
+          border: '1px solid rgba(255,158,59,.24)',
+          display: 'grid', placeItems: 'center',
+          fontFamily: 'var(--font-bricolage), sans-serif',
+          fontWeight: 600, color: 'var(--accent)', fontSize: 18,
+        }}
+      >
+        {s.glyph}
+      </div>
+
+      <h3
+        style={{
+          fontFamily: 'var(--font-bricolage), sans-serif',
+          fontWeight: 500, fontSize: 26, letterSpacing: '-0.02em', lineHeight: 1.1,
+        }}
+      >
+        {s.title}
+      </h3>
+
+      <p style={{ fontSize: 14, lineHeight: 1.6, color: 'var(--ink-2)' }}>
+        {s.desc}
+      </p>
+
+      {/* Expanded detail panel */}
+      {open && (
+        <div
+          style={{
+            borderTop: '1px solid var(--rule-2)',
+            paddingTop: 20,
+            display: 'flex', flexDirection: 'column', gap: 14,
+          }}
+        >
+          <p
+            style={{
+              fontFamily: 'var(--font-bricolage), sans-serif',
+              fontSize: 17, fontWeight: 500, lineHeight: 1.4,
+              color: 'var(--ink)',
+            }}
+          >
+            {s.detail.heading}
+          </p>
+          <p style={{ fontSize: 14, lineHeight: 1.7, color: 'var(--ink-2)' }}>
+            {s.detail.why}
+          </p>
+          <ul style={{ listStyle: 'none', padding: 0, margin: 0, display: 'flex', flexDirection: 'column', gap: 8 }}>
+            {s.detail.bullets.map((b) => (
+              <li
+                key={b}
+                style={{
+                  display: 'flex', alignItems: 'flex-start', gap: 10,
+                  fontSize: 14, lineHeight: 1.55, color: 'var(--ink-2)',
+                }}
+              >
+                <span style={{ color: 'var(--accent)', flexShrink: 0, marginTop: 2 }}>✓</span>
+                {b}
+              </li>
+            ))}
+          </ul>
+        </div>
+      )}
+
+      <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', flexWrap: 'wrap', gap: 10, marginTop: 'auto' }}>
+        <div style={{ display: 'flex', flexWrap: 'wrap', gap: 6 }}>
+          {s.tags.map((t) => (
+            <span
+              key={t}
+              style={{
+                fontSize: 11, padding: '5px 10px',
+                background: 'rgba(242,236,224,.05)',
+                border: '1px solid var(--rule-2)',
+                borderRadius: 999, color: 'var(--ink-2)',
+              }}
+            >
+              {t}
+            </span>
+          ))}
+        </div>
+        <button
+          onClick={() => setOpen(!open)}
+          style={{
+            display: 'inline-flex', alignItems: 'center', gap: 6,
+            fontSize: 12, fontWeight: 600, letterSpacing: '.04em',
+            textTransform: 'uppercase',
+            color: open ? 'var(--mute)' : 'var(--accent)',
+            background: 'none', border: 'none', cursor: 'pointer',
+            padding: 0, transition: 'color .2s', whiteSpace: 'nowrap',
+            fontFamily: 'inherit',
+          }}
+        >
+          {open ? 'Sluiten' : 'Meer info'}
+          <span style={{ transition: 'transform .2s', transform: open ? 'rotate(45deg)' : 'none', display: 'inline-block', fontSize: 16 }}>+</span>
+        </button>
+      </div>
+    </article>
+  )
+}
 
 function Services() {
   return (
@@ -158,90 +335,7 @@ function Services() {
           }}
         >
           {services.map((s) => (
-            <article
-              key={s.idx}
-              style={{
-                background: 'var(--bg-2)',
-                border: '1px solid var(--rule-2)',
-                borderRadius: 20,
-                padding: '28px 28px 24px',
-                display: 'flex', flexDirection: 'column', gap: 16,
-                minHeight: 280,
-                transition: 'transform .3s, border-color .2s',
-                position: 'relative', overflow: 'hidden',
-                cursor: 'default',
-              }}
-              onMouseEnter={(e) => {
-                const el = e.currentTarget as HTMLElement
-                el.style.transform = 'translateY(-4px)'
-                el.style.borderColor = 'rgba(255,158,59,.25)'
-              }}
-              onMouseLeave={(e) => {
-                const el = e.currentTarget as HTMLElement
-                el.style.transform = ''
-                el.style.borderColor = 'var(--rule-2)'
-              }}
-            >
-              <div>
-                <span className="font-mono-label">{s.idx}</span>
-                {s.flag && (
-                  <span
-                    style={{
-                      position: 'absolute', top: 28, right: 28,
-                      display: 'inline-flex', alignItems: 'center',
-                      padding: '3px 9px', background: 'var(--accent)', color: 'var(--bg)',
-                      borderRadius: 999, fontSize: 10, fontWeight: 600,
-                      letterSpacing: '.08em', textTransform: 'uppercase',
-                      lineHeight: 1,
-                    }}
-                  >
-                    {s.flag}
-                  </span>
-                )}
-              </div>
-
-              <div
-                style={{
-                  width: 44, height: 44, borderRadius: 12,
-                  background: 'linear-gradient(135deg, rgba(255,158,59,.18), rgba(255,158,59,.04))',
-                  border: '1px solid rgba(255,158,59,.24)',
-                  display: 'grid', placeItems: 'center',
-                  fontFamily: 'var(--font-bricolage), sans-serif',
-                  fontWeight: 600, color: 'var(--accent)', fontSize: 18,
-                }}
-              >
-                {s.glyph}
-              </div>
-
-              <h3
-                style={{
-                  fontFamily: 'var(--font-bricolage), sans-serif',
-                  fontWeight: 500, fontSize: 26, letterSpacing: '-0.02em', lineHeight: 1.1,
-                }}
-              >
-                {s.title}
-              </h3>
-
-              <p style={{ fontSize: 14, lineHeight: 1.6, color: 'var(--ink-2)', flex: 1 }}>
-                {s.desc}
-              </p>
-
-              <div style={{ display: 'flex', flexWrap: 'wrap', gap: 6, marginTop: 'auto' }}>
-                {s.tags.map((t) => (
-                  <span
-                    key={t}
-                    style={{
-                      fontSize: 11, padding: '5px 10px',
-                      background: 'rgba(242,236,224,.05)',
-                      border: '1px solid var(--rule-2)',
-                      borderRadius: 999, color: 'var(--ink-2)',
-                    }}
-                  >
-                    {t}
-                  </span>
-                ))}
-              </div>
-            </article>
+            <ServiceCard key={s.idx} s={s} />
           ))}
         </div>
       </Wrap>
