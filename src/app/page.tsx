@@ -481,7 +481,7 @@ const channels = [
   {
     dot: '✎', title: 'Project briefen',
     sub: 'Offerte-formulier · 3 min',
-    href: '#offerte',
+    href: '/offerte',
   },
 ]
 
