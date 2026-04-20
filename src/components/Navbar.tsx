@@ -3,11 +3,13 @@
 import { useState, useEffect } from 'react'
 import { Menu, X } from 'lucide-react'
 import { motion, AnimatePresence } from 'framer-motion'
+import Link from 'next/link'
+import { usePathname } from 'next/navigation'
 
 const navLinks = [
-  { label: 'Diensten', href: '#diensten' },
-  { label: 'Werk', href: '#portfolio' },
-  { label: 'Over ons', href: '#over-mij' },
+  { label: 'Diensten',  href: '/diensten'  },
+  { label: 'Over ons',  href: '/over-ons'  },
+  { label: 'Contact',   href: '/contact'   },
 ]
 
 function LunevoMark() {
@@ -20,8 +22,9 @@ function LunevoMark() {
 }
 
 export default function Navbar() {
-  const [scrolled, setScrolled] = useState(false)
-  const [menuOpen, setMenuOpen] = useState(false)
+  const [scrolled, setScrolled]   = useState(false)
+  const [menuOpen, setMenuOpen]   = useState(false)
+  const pathname                  = usePathname()
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 20)
@@ -38,29 +41,36 @@ export default function Navbar() {
       }`}
     >
       <nav className="max-w-6xl mx-auto px-4 sm:px-6 h-16 flex items-center justify-between">
-        <a href="#" className="flex items-center gap-2.5 group">
+        <Link href="/" className="flex items-center gap-2.5 group">
           <LunevoMark />
           <span className="font-bold text-lg tracking-tight">
             Lu<span className="text-indigo-400">nevo</span>
           </span>
-        </a>
+        </Link>
 
         <ul className="hidden md:flex items-center gap-8">
           {navLinks.map((link) => (
             <li key={link.href}>
-              <a href={link.href} className="text-sm text-slate-300 hover:text-white transition-colors">
+              <Link
+                href={link.href}
+                className={`text-sm transition-colors ${
+                  pathname === link.href
+                    ? 'text-white font-medium'
+                    : 'text-slate-400 hover:text-white'
+                }`}
+              >
                 {link.label}
-              </a>
+              </Link>
             </li>
           ))}
         </ul>
 
-        <a
-          href="#contact"
+        <Link
+          href="/contact"
           className="hidden md:inline-flex items-center gap-2 bg-indigo-500 hover:bg-indigo-400 text-white text-sm font-semibold px-4 py-2 rounded-lg transition-all hover:shadow-md hover:shadow-indigo-500/25"
         >
           Offerte aanvragen
-        </a>
+        </Link>
 
         <button
           className="md:hidden text-slate-300 hover:text-white transition-colors"
@@ -83,23 +93,23 @@ export default function Navbar() {
             <ul className="flex flex-col gap-3 pt-2">
               {navLinks.map((link) => (
                 <li key={link.href}>
-                  <a
+                  <Link
                     href={link.href}
                     onClick={() => setMenuOpen(false)}
                     className="block py-2 text-slate-300 hover:text-white transition-colors"
                   >
                     {link.label}
-                  </a>
+                  </Link>
                 </li>
               ))}
               <li>
-                <a
-                  href="#contact"
+                <Link
+                  href="/contact"
                   onClick={() => setMenuOpen(false)}
                   className="block mt-1 bg-indigo-500 hover:bg-indigo-400 text-white text-sm font-semibold px-4 py-2.5 rounded-lg text-center transition-colors"
                 >
                   Offerte aanvragen
-                </a>
+                </Link>
               </li>
             </ul>
           </motion.div>

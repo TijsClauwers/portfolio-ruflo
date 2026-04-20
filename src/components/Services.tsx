@@ -1,7 +1,7 @@
 'use client'
 
 import { motion } from 'framer-motion'
-import { Palette, LayoutDashboard, Shield, Wrench, Search } from 'lucide-react'
+import { Palette, LayoutDashboard, Shield, Wrench, Search, Sparkles } from 'lucide-react'
 
 type SanityService = {
   _id: string
@@ -9,7 +9,7 @@ type SanityService = {
   description: string
   tags: string[]
   colorTheme: 'indigo' | 'violet' | 'emerald' | 'orange'
-  iconName: 'Palette' | 'LayoutDashboard' | 'Shield' | 'Wrench' | 'Search'
+  iconName: 'Palette' | 'LayoutDashboard' | 'Shield' | 'Wrench' | 'Search' | 'Sparkles'
 }
 
 const defaultServices: SanityService[] = [
@@ -17,7 +17,7 @@ const defaultServices: SanityService[] = [
     _id: 'default-1',
     title: 'Maatwerk CMS',
     description:
-      'Beheer uw eigen content via een eenvoudig dashboard. Teksten, afbeeldingen en pagina\'s aanpassen wanneer u wil — geen technische kennis nodig.',
+      "Beheer uw eigen content via een eenvoudig dashboard. Teksten, afbeeldingen en pagina's aanpassen wanneer u wil — geen technische kennis nodig.",
     tags: ['Sanity CMS', 'Eigen beheer', 'Geen technische kennis'],
     colorTheme: 'orange',
     iconName: 'LayoutDashboard',
@@ -39,6 +39,15 @@ const defaultServices: SanityService[] = [
     tags: ['Onderhoud', 'Monitoring', 'Geen zorgen'],
     colorTheme: 'emerald',
     iconName: 'Wrench',
+  },
+  {
+    _id: 'default-4',
+    title: 'AI-zichtbaarheid (LLM SEO)',
+    description:
+      'Wij optimaliseren uw website zodat AI-assistenten zoals ChatGPT, Perplexity en Google AI uw bedrijf aanbevelen. De zoekwereld verandert — wees er vroeg bij.',
+    tags: ['ChatGPT', 'Perplexity', 'Google AI', 'Structured data'],
+    colorTheme: 'violet',
+    iconName: 'Sparkles',
   },
 ]
 
@@ -69,69 +78,51 @@ const colorMap = {
   },
 }
 
-const iconMap = { Palette, LayoutDashboard, Shield, Wrench, Search }
+const iconMap = { Palette, LayoutDashboard, Shield, Wrench, Search, Sparkles }
 
 export default function Services({ services }: { services: SanityService[] }) {
   const displayServices = services.length > 0 ? services : defaultServices
 
   return (
-    <section id="diensten" className="py-24 px-4 sm:px-6">
+    <section className="py-16 px-4 sm:px-6">
       <div className="max-w-6xl mx-auto">
-        <motion.div
-          initial={{ opacity: 0, y: 24 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: '-60px' }}
-          transition={{ duration: 0.6 }}
-          className="text-center mb-16"
-        >
-          <p className="text-indigo-400 text-sm font-semibold uppercase tracking-widest mb-3">
-            Wat wij aanbieden
-          </p>
-          <h2 className="text-3xl sm:text-4xl font-bold mb-4">
-            Alles wat uw bedrijf online nodig heeft
-          </h2>
-          <p className="text-slate-400 max-w-xl mx-auto">
-            Van eerste ontwerp tot lancering en daarna — wij begeleiden u in elke stap van het proces.
-          </p>
-        </motion.div>
-
         <div className="grid sm:grid-cols-2 gap-5">
-            {displayServices.map((service, i) => {
-              const colors = colorMap[service.colorTheme] ?? colorMap.indigo
-              const Icon = iconMap[service.iconName] ?? Palette
-              return (
-                <motion.div
-                  key={service._id}
-                  initial={{ opacity: 0, y: 32 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true, margin: '-40px' }}
-                  transition={{ duration: 0.5, delay: i * 0.08 }}
-                  className={`relative border ${colors.border} rounded-2xl p-6 flex flex-col gap-4 hover:-translate-y-1 transition-all duration-300`}
-                  style={{
-                    background: `linear-gradient(160deg, ${colors.gradientFrom} 0%, transparent 60%), rgba(15,23,42,0.5)`,
-                  }}
-                >
-                  <div className={`w-10 h-10 ${colors.iconBg} rounded-xl flex items-center justify-center`}>
-                    <Icon size={20} className={colors.iconColor} />
-                  </div>
-                  <div>
-                    <h3 className="text-base font-semibold mb-2">{service.title}</h3>
-                    <p className="text-slate-400 text-sm leading-relaxed">{service.description}</p>
-                  </div>
-                  <ul className="flex flex-wrap gap-2 mt-auto pt-2">
-                    {service.tags?.map((tag) => (
-                      <li
-                        key={tag}
-                        className="text-xs bg-white/5 border border-white/8 text-slate-300 px-2.5 py-1 rounded-full"
-                      >
-                        {tag}
-                      </li>
-                    ))}
-                  </ul>
-                </motion.div>
-              )
-            })}
-          </div>
+          {displayServices.map((service, i) => {
+            const colors = colorMap[service.colorTheme] ?? colorMap.indigo
+            const Icon = iconMap[service.iconName] ?? Palette
+            return (
+              <motion.div
+                key={service._id}
+                initial={{ opacity: 0, y: 32 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, margin: '-40px' }}
+                transition={{ duration: 0.5, delay: i * 0.08 }}
+                className={`relative border ${colors.border} rounded-2xl p-6 flex flex-col gap-4 hover:-translate-y-1 transition-all duration-300`}
+                style={{
+                  background: `linear-gradient(160deg, ${colors.gradientFrom} 0%, transparent 60%), rgba(15,23,42,0.5)`,
+                }}
+              >
+                <div className={`w-10 h-10 ${colors.iconBg} rounded-xl flex items-center justify-center`}>
+                  <Icon size={20} className={colors.iconColor} />
+                </div>
+                <div>
+                  <h3 className="text-base font-semibold mb-2">{service.title}</h3>
+                  <p className="text-slate-400 text-sm leading-relaxed">{service.description}</p>
+                </div>
+                <ul className="flex flex-wrap gap-2 mt-auto pt-2">
+                  {service.tags?.map((tag) => (
+                    <li
+                      key={tag}
+                      className="text-xs bg-white/5 border border-white/8 text-slate-300 px-2.5 py-1 rounded-full"
+                    >
+                      {tag}
+                    </li>
+                  ))}
+                </ul>
+              </motion.div>
+            )
+          })}
+        </div>
       </div>
     </section>
   )

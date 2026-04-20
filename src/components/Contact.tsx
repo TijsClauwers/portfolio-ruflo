@@ -13,24 +13,8 @@ export default function Contact() {
   }
 
   return (
-    <section id="contact" className="py-24 px-4 sm:px-6">
+    <section className="py-16 px-4 sm:px-6">
       <div className="max-w-6xl mx-auto">
-        <motion.div
-          initial={{ opacity: 0, y: 24 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: '-60px' }}
-          transition={{ duration: 0.6 }}
-          className="text-center mb-16"
-        >
-          <p className="text-indigo-400 text-sm font-semibold uppercase tracking-widest mb-3">
-            Contact
-          </p>
-          <h2 className="text-3xl sm:text-4xl font-bold mb-4">Klaar om online te gaan?</h2>
-          <p className="text-slate-400 max-w-xl mx-auto">
-            Stuur een bericht of neem contact op via WhatsApp. Wij antwoorden binnen de 24 uur.
-          </p>
-        </motion.div>
-
         <div className="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
           {/* Form */}
           <motion.div

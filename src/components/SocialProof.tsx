@@ -32,28 +32,8 @@ const pillars = [
 
 export default function SocialProof() {
   return (
-    <section id="over-mij" className="py-24 px-4 sm:px-6 bg-slate-900/20">
+    <section className="py-16 px-4 sm:px-6">
       <div className="max-w-6xl mx-auto">
-        <motion.div
-          initial={{ opacity: 0, y: 24 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: '-60px' }}
-          transition={{ duration: 0.6 }}
-          className="text-center mb-16"
-        >
-          <p className="text-indigo-400 text-sm font-semibold uppercase tracking-widest mb-3">
-            Waarom Lunevo
-          </p>
-          <h2 className="text-3xl sm:text-4xl font-bold mb-4">
-            Het vertrouwen van een top bureau,
-            <br className="hidden sm:block" /> de zorg van een lokale partner.
-          </h2>
-          <p className="text-slate-400 max-w-2xl mx-auto">
-            Wij combineren professioneel ontwerp en ontwikkeling met de persoonlijke aandacht die
-            grote bureaus simpelweg niet kunnen bieden.
-          </p>
-        </motion.div>
-
         <div className="grid md:grid-cols-3 gap-5 mb-16">
           {pillars.map((pillar, i) => {
             const Icon = pillar.icon
