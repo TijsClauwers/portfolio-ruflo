@@ -182,15 +182,17 @@ function Services() {
                 el.style.borderColor = 'var(--rule-2)'
               }}
             >
-              <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start' }}>
+              <div>
                 <span className="font-mono-label">{s.idx}</span>
                 {s.flag && (
                   <span
                     style={{
-                      display: 'inline-flex', alignItems: 'center', gap: 6,
-                      padding: '4px 10px', background: 'var(--accent)', color: 'var(--bg)',
+                      position: 'absolute', top: 28, right: 28,
+                      display: 'inline-flex', alignItems: 'center',
+                      padding: '3px 9px', background: 'var(--accent)', color: 'var(--bg)',
                       borderRadius: 999, fontSize: 10, fontWeight: 600,
                       letterSpacing: '.08em', textTransform: 'uppercase',
+                      lineHeight: 1,
                     }}
                   >
                     {s.flag}
