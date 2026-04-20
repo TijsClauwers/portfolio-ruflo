@@ -1,8 +1,6 @@
 import Navbar from '@/components/Navbar'
 import Hero from '@/components/Hero'
-import Services from '@/components/Services'
-import HowItWorks from '@/components/HowItWorks'
-import SocialProof from '@/components/SocialProof'
+import BentoGrid from '@/components/BentoGrid'
 import Contact from '@/components/Contact'
 import Footer from '@/components/Footer'
 import { client, servicesQuery } from '@/sanity/client'
@@ -60,9 +58,7 @@ export default async function HomePage() {
       <Navbar />
       <Hero />
       <MarqueeStrip />
-      <Services services={services} />
-      <HowItWorks />
-      <SocialProof />
+      <BentoGrid services={services} />
       <Contact />
       <Footer />
     </main>
