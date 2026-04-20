@@ -1,26 +1,101 @@
+'use client'
+
 import Navbar from '@/components/Navbar'
 import Hero from '@/components/Hero'
-import Footer from '@/components/Footer'
-import Link from 'next/link'
-import { ArrowRight } from 'lucide-react'
 
+/* ── Shared wrap ─────────────────────────────────────────── */
+function Wrap({ children, style }: { children: React.ReactNode; style?: React.CSSProperties }) {
+  return (
+    <div style={{ maxWidth: 1360, margin: '0 auto', padding: '0 40px', position: 'relative', ...style }}>
+      {children}
+    </div>
+  )
+}
+
+/* ── Section header ──────────────────────────────────────── */
+function SecHead({ eyebrow, title, right }: { eyebrow: string; title: React.ReactNode; right?: string }) {
+  return (
+    <div
+      style={{
+        display: 'grid',
+        gridTemplateColumns: right ? '1fr 1fr' : '1fr',
+        gap: '32px 60px',
+        alignItems: 'end',
+        marginBottom: 56,
+      }}
+    >
+      <div>
+        <div style={{ display: 'flex', alignItems: 'center', gap: 10, marginBottom: 16 }}>
+          <span
+            style={{
+              display: 'inline-block', width: 8, height: 8,
+              background: 'var(--accent)', borderRadius: 2,
+              flexShrink: 0,
+            }}
+          />
+          <span className="font-mono-label">{eyebrow}</span>
+        </div>
+        <h2
+          style={{
+            fontFamily: 'var(--font-bricolage), sans-serif',
+            fontVariationSettings: "'opsz' 72",
+            fontWeight: 500, fontSize: 'clamp(36px, 5vw, 64px)',
+            lineHeight: 1.0, letterSpacing: '-0.03em',
+            color: 'var(--ink)',
+          }}
+        >
+          {title}
+        </h2>
+      </div>
+      {right && (
+        <p
+          style={{
+            fontSize: 16, lineHeight: 1.6, color: 'var(--ink-2)',
+            maxWidth: '40ch', alignSelf: 'end',
+          }}
+        >
+          {right}
+        </p>
+      )}
+    </div>
+  )
+}
+
+/* ── Marquee ─────────────────────────────────────────────── */
 const marqueeItems = [
-  'Next.js', 'Tailwind CSS', 'TypeScript', 'SEO-geoptimaliseerd', 'Maatwerk CMS',
-  'Mobiel-first', 'Snelle laadtijden', 'Framer Motion', 'Maatwerk Design',
-  'Performance', 'Toegankelijkheid', 'LLM SEO', 'AI-zichtbaarheid',
+  'Next.js', 'Tailwind CSS', 'TypeScript', 'Sanity CMS', 'Framer Motion',
+  'LLM-SEO', 'Mobiel-first', 'Performance', 'Toegankelijkheid',
+  'Three.js', 'Maatwerk Design',
 ]
 
 function MarqueeStrip() {
-  const repeated = [...marqueeItems, ...marqueeItems]
+  const items = [...marqueeItems, ...marqueeItems]
   return (
-    <div className="py-5 border-y border-white/5 bg-slate-900/30 overflow-hidden">
-      <div className="flex animate-marquee whitespace-nowrap">
-        {repeated.map((item, i) => (
+    <div
+      style={{
+        borderTop: '1px solid var(--rule-2)',
+        borderBottom: '1px solid var(--rule-2)',
+        overflow: 'hidden',
+        padding: '16px 0',
+        background: 'var(--bg-2)',
+      }}
+    >
+      <div className="animate-marquee" style={{ display: 'flex', whiteSpace: 'nowrap' }}>
+        {items.map((item, i) => (
           <span
             key={i}
-            className="inline-flex items-center gap-3 mx-6 text-xs font-medium text-slate-500 uppercase tracking-widest"
+            style={{
+              display: 'inline-flex', alignItems: 'center', gap: 16,
+              marginRight: 32, fontSize: 12, letterSpacing: '0.12em',
+              textTransform: 'uppercase', color: 'var(--mute)', fontWeight: 500,
+            }}
           >
-            <span className="w-1 h-1 rounded-full bg-indigo-500/60 flex-shrink-0" />
+            <span
+              style={{
+                width: 4, height: 4, borderRadius: '50%',
+                background: 'var(--accent)', opacity: 0.6, flexShrink: 0,
+              }}
+            />
             {item}
           </span>
         ))}
@@ -29,104 +104,585 @@ function MarqueeStrip() {
   )
 }
 
-const serviceHighlights = [
-  { label: 'Maatwerk CMS',             color: 'bg-orange-500/10  text-orange-400'  },
-  { label: 'SEO-geoptimaliseerd',       color: 'bg-indigo-500/10  text-indigo-400'  },
-  { label: 'Website beheer',            color: 'bg-emerald-500/10 text-emerald-400' },
-  { label: 'AI-zichtbaarheid (LLM SEO)', color: 'bg-violet-500/10  text-violet-400'  },
+/* ── Services ────────────────────────────────────────────── */
+const services = [
+  {
+    idx: '01 / 04',
+    glyph: 'C',
+    title: <>Maatwerk <em style={{ fontStyle: 'italic', color: 'var(--accent)' }}>CMS</em></>,
+    desc: 'Beheer uw eigen content via een eenvoudig dashboard. Teksten, afbeeldingen en pagina\'s aanpassen wanneer u wil — geen technische kennis nodig.',
+    tags: ['Sanity CMS', 'Eigen beheer', 'Geen tech-kennis'],
+    flag: null,
+  },
+  {
+    idx: '02 / 04',
+    glyph: 'S',
+    title: <><em style={{ fontStyle: 'italic', color: 'var(--accent)' }}>SEO-</em>geoptimaliseerd</>,
+    desc: 'Next.js-sites laden razendsnel en scoren uitstekend op Google. Wij implementeren structured data, correcte meta-tags en een sitemap voor maximale vindbaarheid.',
+    tags: ['Structured data', 'Meta-tags', 'Sitemap', 'Core Web Vitals'],
+    flag: null,
+  },
+  {
+    idx: '03 / 04',
+    glyph: '∞',
+    title: <><em style={{ fontStyle: 'italic', color: 'var(--accent)' }}>LLM</em> SEO-optimalisatie</>,
+    desc: 'Nu ook vindbaar in ChatGPT, Perplexity en Google AI. Wij structureren uw content met llms.txt, FAQ-schema en cite-bare antwoorden zodat AI-modellen uw merk correct citeren.',
+    tags: ['llms.txt', 'Answer engine', 'Entity markup', 'GEO'],
+    flag: 'Nieuw',
+  },
+  {
+    idx: '04 / 04',
+    glyph: 'W',
+    title: <>Website <em style={{ fontStyle: 'italic', color: 'var(--accent)' }}>beheer</em></>,
+    desc: 'Geen zorgen over updates, beveiliging of downtime. Wij houden alles draaiende zodat u zich volledig op uw zaak kunt focussen.',
+    tags: ['Onderhoud', 'Monitoring', 'Geen zorgen'],
+    flag: null,
+  },
 ]
 
-function ServiceTeaser() {
+function Services() {
   return (
-    <section className="py-20 px-4 sm:px-6">
-      <div className="max-w-6xl mx-auto">
-        <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-6 mb-10">
-          <div>
-            <p className="text-indigo-400 text-xs font-semibold uppercase tracking-widest mb-2">Wat wij doen</p>
-            <h2 className="text-3xl font-bold">Alles wat uw bedrijf online nodig heeft</h2>
-          </div>
-          <Link
-            href="/diensten"
-            className="inline-flex items-center gap-2 text-sm text-indigo-400 hover:text-indigo-300 transition-colors font-medium shrink-0"
-          >
-            Bekijk alle diensten <ArrowRight size={14} />
-          </Link>
-        </div>
+    <section style={{ padding: '100px 0' }} id="diensten">
+      <Wrap>
+        <SecHead
+          eyebrow="§ 01 — Diensten"
+          title={<>Wat wij<br /><span style={{ fontStyle: 'italic' }}>aanbieden.</span></>}
+          right="Alles wat uw bedrijf online nodig heeft — ontwerp, ontwikkeling en vindbaarheid. Inclusief de nieuwe realiteit: gevonden worden in ChatGPT, Perplexity en Google AI."
+        />
 
-        <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-3">
-          {serviceHighlights.map((s) => (
-            <Link
-              key={s.label}
-              href="/diensten"
-              className="flex items-center gap-3 bg-slate-900/50 border border-white/5 hover:border-white/10 rounded-xl px-4 py-4 group transition-all hover:-translate-y-0.5"
+        <div
+          style={{
+            display: 'grid',
+            gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))',
+            gap: 16,
+          }}
+        >
+          {services.map((s) => (
+            <article
+              key={s.idx}
+              style={{
+                background: 'var(--bg-2)',
+                border: '1px solid var(--rule-2)',
+                borderRadius: 20,
+                padding: '28px 28px 24px',
+                display: 'flex', flexDirection: 'column', gap: 16,
+                minHeight: 280,
+                transition: 'transform .3s, border-color .2s',
+                position: 'relative', overflow: 'hidden',
+                cursor: 'default',
+              }}
+              onMouseEnter={(e) => {
+                const el = e.currentTarget as HTMLElement
+                el.style.transform = 'translateY(-4px)'
+                el.style.borderColor = 'rgba(255,158,59,.25)'
+              }}
+              onMouseLeave={(e) => {
+                const el = e.currentTarget as HTMLElement
+                el.style.transform = ''
+                el.style.borderColor = 'var(--rule-2)'
+              }}
             >
-              <span className={`w-2 h-2 rounded-full shrink-0 ${s.color.split(' ')[0]}`} style={{ background: 'currentColor' }} />
-              <span className={`text-sm font-medium ${s.color.split(' ')[1]}`}>{s.label}</span>
-              <ArrowRight size={12} className="ml-auto text-slate-600 group-hover:text-slate-400 transition-colors" />
-            </Link>
+              <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start' }}>
+                <span className="font-mono-label">{s.idx}</span>
+                {s.flag && (
+                  <span
+                    style={{
+                      display: 'inline-flex', alignItems: 'center', gap: 6,
+                      padding: '4px 10px', background: 'var(--accent)', color: 'var(--bg)',
+                      borderRadius: 999, fontSize: 10, fontWeight: 600,
+                      letterSpacing: '.08em', textTransform: 'uppercase',
+                    }}
+                  >
+                    {s.flag}
+                  </span>
+                )}
+              </div>
+
+              <div
+                style={{
+                  width: 44, height: 44, borderRadius: 12,
+                  background: 'linear-gradient(135deg, rgba(255,158,59,.18), rgba(255,158,59,.04))',
+                  border: '1px solid rgba(255,158,59,.24)',
+                  display: 'grid', placeItems: 'center',
+                  fontFamily: 'var(--font-bricolage), sans-serif',
+                  fontWeight: 600, color: 'var(--accent)', fontSize: 18,
+                }}
+              >
+                {s.glyph}
+              </div>
+
+              <h3
+                style={{
+                  fontFamily: 'var(--font-bricolage), sans-serif',
+                  fontWeight: 500, fontSize: 26, letterSpacing: '-0.02em', lineHeight: 1.1,
+                }}
+              >
+                {s.title}
+              </h3>
+
+              <p style={{ fontSize: 14, lineHeight: 1.6, color: 'var(--ink-2)', flex: 1 }}>
+                {s.desc}
+              </p>
+
+              <div style={{ display: 'flex', flexWrap: 'wrap', gap: 6, marginTop: 'auto' }}>
+                {s.tags.map((t) => (
+                  <span
+                    key={t}
+                    style={{
+                      fontSize: 11, padding: '5px 10px',
+                      background: 'rgba(242,236,224,.05)',
+                      border: '1px solid var(--rule-2)',
+                      borderRadius: 999, color: 'var(--ink-2)',
+                    }}
+                  >
+                    {t}
+                  </span>
+                ))}
+              </div>
+            </article>
           ))}
         </div>
-      </div>
+      </Wrap>
     </section>
   )
 }
 
-function StatsStrip() {
-  const stats = [
-    { value: '1+',     label: 'Opgeleverde projecten' },
-    { value: '< 2s',   label: 'Gemiddelde laadtijd'   },
-    { value: '100%',   label: 'Tevreden klanten'       },
-    { value: 'Gratis', label: 'Eerste kennismaking'    },
-  ]
+/* ── Process ─────────────────────────────────────────────── */
+const steps = [
+  {
+    n: '01', dur: 'Week 1',
+    title: 'Vrijblijvend gesprek',
+    desc: 'We leren uw bedrijf kennen. Wat moet de site bereiken? Wie is uw klant? Geen technische kennis vereist.',
+  },
+  {
+    n: '02', dur: 'Week 2',
+    title: 'Ontwerp op maat',
+    desc: 'We ontwerpen vanuit uw merk. U ziet het eindresultaat voor we ook maar één regel code schrijven.',
+  },
+  {
+    n: '03', dur: 'Week 3–4',
+    title: 'Ontwikkeling',
+    desc: 'We bouwen in Next.js — snel, veilig, volledig op maat. U volgt de voortgang en geeft feedback.',
+  },
+  {
+    n: '04', dur: 'Lopend',
+    title: 'Lancering & beheer',
+    desc: 'Live op uw domein, getest op elk toestel. Daarna zorgen wij voor onderhoud zodat u zich kunt focussen.',
+  },
+]
+
+function Process() {
   return (
-    <div className="px-4 sm:px-6 pb-20">
-      <div className="max-w-6xl mx-auto grid grid-cols-2 md:grid-cols-4 gap-px bg-white/5 rounded-2xl overflow-hidden border border-white/5">
-        {stats.map((s) => (
-          <div key={s.label} className="bg-slate-900/70 px-6 py-6 text-center">
-            <div className="text-2xl font-extrabold text-indigo-400">{s.value}</div>
-            <div className="text-xs text-slate-400 mt-1">{s.label}</div>
+    <section style={{ padding: '60px 0 100px' }} id="proces">
+      <Wrap>
+        <SecHead
+          eyebrow="§ 02 — Proces"
+          title={<>Hoe werkt<br /><span style={{ fontStyle: 'italic' }}>het?</span></>}
+          right="Vier stappen, ca. 4–8 weken van brief tot live. Helder, persoonlijk en zonder verrassingen."
+        />
+
+        <div style={{ position: 'relative' }}>
+          <div
+            style={{
+              position: 'absolute', top: 30, left: '5%', right: '5%', height: 1,
+              background: 'linear-gradient(90deg, transparent, var(--rule-2) 10%, var(--rule-2) 90%, transparent)',
+            }}
+          />
+          <div
+            style={{
+              display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)',
+              gap: 32, position: 'relative',
+            }}
+          >
+            {steps.map((s) => (
+              <div key={s.n} style={{ display: 'flex', flexDirection: 'column', gap: 14 }}>
+                <div
+                  style={{
+                    width: 60, height: 60, borderRadius: '50%',
+                    border: '1px solid var(--rule-2)', background: 'var(--bg-2)',
+                    display: 'grid', placeItems: 'center',
+                    fontFamily: 'var(--font-bricolage), sans-serif',
+                    fontWeight: 500, fontSize: 22, color: 'var(--accent)',
+                    position: 'relative',
+                  }}
+                >
+                  {s.n}
+                  <span
+                    style={{
+                      position: 'absolute', inset: -6, borderRadius: '50%',
+                      border: '1px dashed rgba(255,158,59,.2)',
+                    }}
+                  />
+                </div>
+                <span className="font-mono-label" style={{ marginTop: 4 }}>{s.dur}</span>
+                <h4
+                  style={{
+                    fontFamily: 'var(--font-bricolage), sans-serif',
+                    fontWeight: 500, fontSize: 22, letterSpacing: '-0.02em',
+                  }}
+                >
+                  {s.title}
+                </h4>
+                <p style={{ fontSize: 14, lineHeight: 1.55, color: 'var(--ink-2)', maxWidth: '30ch' }}>
+                  {s.desc}
+                </p>
+              </div>
+            ))}
           </div>
-        ))}
-      </div>
-    </div>
+        </div>
+      </Wrap>
+
+      <style>{`
+        @media (max-width: 820px) {
+          #proces .proc-grid { grid-template-columns: 1fr 1fr !important; }
+        }
+        @media (max-width: 520px) {
+          #proces .proc-grid { grid-template-columns: 1fr !important; }
+        }
+      `}</style>
+    </section>
   )
 }
 
-function CtaBanner() {
+/* ── Why ─────────────────────────────────────────────────── */
+const pillars = [
+  {
+    glyph: '⌂',
+    title: 'Lokale partner',
+    desc: 'Persoonlijke afspraken zijn altijd mogelijk — geen gezichtsloos bureau, geen ticket-systeem.',
+    footL: 'LOC', footR: 'BE · NL',
+  },
+  {
+    glyph: '⇄',
+    title: 'Direct contact',
+    desc: 'Geen contactformulieren die verdwijnen. U bereikt ons direct — snel, eerlijk en zonder omwegen.',
+    footL: 'SLA', footR: '< 24u',
+  },
+  {
+    glyph: '€',
+    title: 'Geen verborgen kosten',
+    desc: 'Transparante offertes, heldere communicatie en geen verrassingen op de factuur.',
+    footL: 'PRIJS', footR: 'VAST',
+  },
+]
+
+function Why() {
   return (
-    <section className="px-4 sm:px-6 pb-24">
-      <div className="max-w-6xl mx-auto">
-        <div className="relative rounded-3xl border border-indigo-500/15 bg-gradient-to-br from-indigo-500/8 to-transparent overflow-hidden px-8 py-12 flex flex-col sm:flex-row items-center justify-between gap-6">
-          <div className="absolute inset-0 pointer-events-none">
-            <div className="absolute top-0 right-0 w-64 h-64 bg-indigo-500/10 rounded-full blur-[80px]" />
-          </div>
-          <div className="relative">
-            <h2 className="text-2xl font-bold mb-2">Klaar om online te gaan?</h2>
-            <p className="text-slate-400 text-sm max-w-md">
-              Gratis eerste gesprek. Wij luisteren naar uw noden en geven u een eerlijke offerte — zonder verplichtingen.
+    <section style={{ padding: '60px 0 100px' }} id="over-mij">
+      <Wrap>
+        <SecHead
+          eyebrow="§ 03 — Waarom Lunevo"
+          title={<>Top-bureau <span style={{ fontStyle: 'italic' }}>vertrouwen,</span> lokale zorg.</>}
+          right="Professioneel ontwerp en ontwikkeling met de persoonlijke aandacht die grote bureaus simpelweg niet kunnen bieden."
+        />
+
+        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: 16 }}>
+          {pillars.map((p) => (
+            <div
+              key={p.title}
+              style={{
+                background: 'linear-gradient(180deg, rgba(255,255,255,.03), rgba(255,255,255,0))',
+                border: '1px solid var(--rule-2)', borderRadius: 20, padding: 32,
+                display: 'flex', flexDirection: 'column', gap: 16, minHeight: 260,
+              }}
+            >
+              <div
+                style={{
+                  width: 48, height: 48, borderRadius: 14,
+                  background: 'rgba(255,158,59,.12)',
+                  border: '1px solid rgba(255,158,59,.24)',
+                  display: 'grid', placeItems: 'center',
+                  fontFamily: 'var(--font-bricolage), sans-serif',
+                  fontSize: 22, color: 'var(--accent)',
+                }}
+              >
+                {p.glyph}
+              </div>
+              <h4
+                style={{
+                  fontFamily: 'var(--font-bricolage), sans-serif',
+                  fontWeight: 500, fontSize: 22, letterSpacing: '-0.02em',
+                }}
+              >
+                {p.title}
+              </h4>
+              <p style={{ fontSize: 14.5, lineHeight: 1.6, color: 'var(--ink-2)', flex: 1 }}>
+                {p.desc}
+              </p>
+              <div
+                style={{
+                  marginTop: 'auto', paddingTop: 16,
+                  borderTop: '1px solid var(--rule)',
+                  display: 'flex', justifyContent: 'space-between',
+                  fontFamily: 'ui-monospace, monospace',
+                  fontSize: 11, color: 'var(--mute)', letterSpacing: '.06em',
+                  textTransform: 'uppercase',
+                }}
+              >
+                <span>{p.footL}</span>
+                <span>{p.footR}</span>
+              </div>
+            </div>
+          ))}
+        </div>
+
+        {/* Quote */}
+        <div
+          style={{
+            marginTop: 48, padding: 48,
+            border: '1px solid var(--rule-2)', borderRadius: 20,
+            background: `
+              radial-gradient(600px 200px at 0% 0%, rgba(255,158,59,.06), transparent 60%),
+              var(--bg-2)
+            `,
+            fontFamily: 'var(--font-bricolage), sans-serif',
+            fontWeight: 400, fontStyle: 'italic',
+            fontSize: 'clamp(22px, 3vw, 32px)', lineHeight: 1.3,
+            letterSpacing: '-0.02em', maxWidth: '28ch',
+          }}
+        >
+          &ldquo;Elk project behandelen{' '}
+          <span style={{ color: 'var(--accent)' }}>alsof het ons eigen merk is</span>
+          {' '}— dat is het verschil.&rdquo;
+          <span
+            style={{
+              display: 'block', fontStyle: 'normal', fontSize: 13,
+              color: 'var(--mute)', letterSpacing: '.06em',
+              textTransform: 'uppercase', marginTop: 20,
+              fontFamily: 'ui-monospace, monospace',
+            }}
+          >
+            — Tijs · Lunevo Studio
+          </span>
+        </div>
+      </Wrap>
+
+      <style>{`
+        @media (max-width: 820px) {
+          #over-mij .why-grid { grid-template-columns: 1fr !important; }
+        }
+      `}</style>
+    </section>
+  )
+}
+
+/* ── Contact ─────────────────────────────────────────────── */
+const channels = [
+  {
+    dot: 'W', title: 'WhatsApp ons',
+    sub: 'Snelste manier · +32',
+    href: 'https://wa.me/32000000000',
+  },
+  {
+    dot: '@', title: 'info@lunevo.be',
+    sub: 'E-mail · binnen 24u',
+    href: 'mailto:info@lunevo.be',
+  },
+  {
+    dot: '✎', title: 'Project briefen',
+    sub: 'Offerte-formulier · 3 min',
+    href: '#offerte',
+  },
+]
+
+function Contact() {
+  return (
+    <section
+      style={{
+        padding: '120px 0',
+        borderTop: '1px solid var(--rule-2)',
+        background: `
+          radial-gradient(700px 400px at 50% 0%, rgba(255,158,59,.08), transparent 60%),
+          linear-gradient(180deg, var(--bg-2), var(--bg))
+        `,
+      }}
+      id="contact"
+    >
+      <Wrap>
+        <div
+          style={{
+            display: 'grid', gridTemplateColumns: '1.1fr 1fr',
+            gap: 80, alignItems: 'start',
+          }}
+        >
+          <div>
+            <div style={{ display: 'flex', alignItems: 'center', gap: 12, marginBottom: 24 }}>
+              <span
+                style={{
+                  display: 'inline-block', width: 8, height: 8,
+                  background: 'var(--accent)',
+                }}
+              />
+              <span className="font-mono-label">§ 04 — Contact</span>
+            </div>
+            <h2
+              style={{
+                fontFamily: 'var(--font-bricolage), sans-serif',
+                fontWeight: 500,
+                fontSize: 'clamp(48px, 7vw, 96px)',
+                lineHeight: 0.95, letterSpacing: '-0.035em',
+              }}
+            >
+              Klaar om<br />online<br />
+              <span style={{ fontStyle: 'italic', color: 'var(--accent)' }}>te gaan?</span>
+            </h2>
+            <p
+              style={{
+                marginTop: 32, color: 'var(--ink-2)', maxWidth: '38ch',
+                fontSize: 17, lineHeight: 1.5,
+              }}
+            >
+              Stuur een bericht of neem contact op via WhatsApp. Wij antwoorden binnen de 24 uur — gratis eerste gesprek, zonder verplichtingen.
             </p>
           </div>
-          <Link
-            href="/contact"
-            className="relative shrink-0 flex items-center gap-2 bg-indigo-500 hover:bg-indigo-400 text-white font-semibold px-6 py-3 rounded-xl transition-all hover:shadow-lg hover:shadow-indigo-500/25 hover:-translate-y-0.5"
-          >
-            Offerte aanvragen <ArrowRight size={16} />
-          </Link>
+
+          <div style={{ display: 'flex', flexDirection: 'column', gap: 10 }}>
+            {channels.map((c) => (
+              <a
+                key={c.title}
+                href={c.href}
+                style={{
+                  display: 'flex', alignItems: 'center', justifyContent: 'space-between', gap: 20,
+                  padding: '20px 24px', border: '1px solid var(--rule-2)', borderRadius: 16,
+                  background: 'linear-gradient(180deg, rgba(255,255,255,.03), rgba(255,255,255,0))',
+                  textDecoration: 'none', transition: 'transform .2s, border-color .2s, background .2s',
+                  color: 'inherit',
+                }}
+                onMouseEnter={(e) => {
+                  const el = e.currentTarget as HTMLElement
+                  el.style.transform = 'translateX(4px)'
+                  el.style.borderColor = 'rgba(255,158,59,.3)'
+                  el.style.background = 'rgba(255,158,59,.04)'
+                }}
+                onMouseLeave={(e) => {
+                  const el = e.currentTarget as HTMLElement
+                  el.style.transform = ''
+                  el.style.borderColor = 'var(--rule-2)'
+                  el.style.background = 'linear-gradient(180deg, rgba(255,255,255,.03), rgba(255,255,255,0))'
+                }}
+              >
+                <div style={{ display: 'flex', alignItems: 'center', gap: 16 }}>
+                  <div
+                    style={{
+                      width: 40, height: 40, borderRadius: 12,
+                      background: 'rgba(255,158,59,.12)', border: '1px solid rgba(255,158,59,.24)',
+                      display: 'grid', placeItems: 'center',
+                      fontFamily: 'var(--font-bricolage), sans-serif',
+                      fontWeight: 600, color: 'var(--accent)',
+                    }}
+                  >
+                    {c.dot}
+                  </div>
+                  <div>
+                    <div
+                      style={{
+                        fontFamily: 'var(--font-bricolage), sans-serif',
+                        fontWeight: 500, fontSize: 20, letterSpacing: '-0.02em',
+                      }}
+                    >
+                      {c.title}
+                    </div>
+                    <div
+                      style={{
+                        fontSize: 13, color: 'var(--mute)', marginTop: 2,
+                        fontFamily: 'ui-monospace, monospace', letterSpacing: '.04em',
+                      }}
+                    >
+                      {c.sub}
+                    </div>
+                  </div>
+                </div>
+                <span style={{ fontSize: 18, color: 'var(--mute)', transition: 'color .2s, transform .2s' }}>→</span>
+              </a>
+            ))}
+
+            {/* Location pill */}
+            <div
+              style={{
+                display: 'flex', alignItems: 'center', justifyContent: 'space-between', gap: 20,
+                padding: '20px 24px', border: '1px solid var(--rule-2)', borderRadius: 16,
+                background: 'linear-gradient(180deg, rgba(255,255,255,.03), rgba(255,255,255,0))',
+              }}
+            >
+              <div style={{ display: 'flex', alignItems: 'center', gap: 16 }}>
+                <div
+                  style={{
+                    width: 40, height: 40, borderRadius: 12,
+                    background: 'rgba(255,158,59,.12)', border: '1px solid rgba(255,158,59,.24)',
+                    display: 'grid', placeItems: 'center',
+                    fontFamily: 'var(--font-bricolage), sans-serif',
+                    fontWeight: 600, color: 'var(--accent)',
+                  }}
+                >
+                  ⌘
+                </div>
+                <div>
+                  <div
+                    style={{
+                      fontFamily: 'var(--font-bricolage), sans-serif',
+                      fontWeight: 500, fontSize: 20, letterSpacing: '-0.02em',
+                    }}
+                  >
+                    België &amp; remote
+                  </div>
+                  <div
+                    style={{
+                      fontSize: 13, color: 'var(--mute)', marginTop: 2,
+                      fontFamily: 'ui-monospace, monospace', letterSpacing: '.04em',
+                    }}
+                  >
+                    Regio · wereldwijd
+                  </div>
+                </div>
+              </div>
+              <span style={{ fontSize: 18, color: 'var(--mute)' }}>·</span>
+            </div>
+          </div>
         </div>
-      </div>
+      </Wrap>
+
+      <style>{`
+        @media (max-width: 900px) {
+          #contact > div > div { grid-template-columns: 1fr !important; gap: 48px !important; }
+        }
+      `}</style>
     </section>
   )
 }
 
+/* ── Footer ──────────────────────────────────────────────── */
+function Footer() {
+  return (
+    <footer
+      style={{
+        borderTop: '1px solid var(--rule-2)',
+        padding: '28px 0',
+        fontFamily: 'ui-monospace, monospace',
+        fontSize: 11, color: 'var(--mute)',
+        letterSpacing: '.08em', textTransform: 'uppercase',
+      }}
+    >
+      <Wrap>
+        <div style={{ display: 'flex', justifyContent: 'space-between', gap: 24, flexWrap: 'wrap' }}>
+          <span>© 2026 Lunevo · Studio voor digitaal maatwerk</span>
+          <a href="#contact" style={{ color: 'var(--mute)', textDecoration: 'none' }}>Contact</a>
+        </div>
+      </Wrap>
+    </footer>
+  )
+}
+
+/* ── Page ────────────────────────────────────────────────── */
 export default function HomePage() {
   return (
-    <main>
+    <main style={{ background: 'var(--bg)', color: 'var(--ink)', minHeight: '100vh' }}>
       <Navbar />
       <Hero />
       <MarqueeStrip />
-      <ServiceTeaser />
-      <StatsStrip />
-      <CtaBanner />
+      <Services />
+      <Process />
+      <Why />
+      <Contact />
       <Footer />
     </main>
   )
