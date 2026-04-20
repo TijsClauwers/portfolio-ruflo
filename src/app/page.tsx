@@ -115,15 +115,7 @@ const services = [
     flag: null,
   },
   {
-    idx: '02 / 05',
-    glyph: 'W',
-    title: <><em style={{ fontStyle: 'italic', color: 'var(--accent)' }}>WordPress</em> website</>,
-    desc: 'Een professionele website op WordPress — ideaal voor kleinere budgetten. Snel online, makkelijk te beheren en volledig op maat van uw merk.',
-    tags: ['WordPress', 'Klein budget', 'Snel live'],
-    flag: null,
-  },
-  {
-    idx: '03 / 05',
+    idx: '02 / 04',
     glyph: 'S',
     title: <><em style={{ fontStyle: 'italic', color: 'var(--accent)' }}>SEO-</em>geoptimaliseerd</>,
     desc: 'Next.js-sites laden razendsnel en scoren uitstekend op Google. Wij implementeren structured data, correcte meta-tags en een sitemap voor maximale vindbaarheid.',
@@ -131,7 +123,7 @@ const services = [
     flag: null,
   },
   {
-    idx: '04 / 05',
+    idx: '03 / 04',
     glyph: '∞',
     title: <><em style={{ fontStyle: 'italic', color: 'var(--accent)' }}>LLM</em> SEO-optimalisatie</>,
     desc: 'Nu ook vindbaar in ChatGPT, Perplexity en Google AI. Wij structureren uw content met llms.txt, FAQ-schema en cite-bare antwoorden zodat AI-modellen uw merk correct citeren.',
@@ -139,7 +131,7 @@ const services = [
     flag: 'Nieuw',
   },
   {
-    idx: '05 / 05',
+    idx: '04 / 04',
     glyph: '↻',
     title: <>Website <em style={{ fontStyle: 'italic', color: 'var(--accent)' }}>beheer</em></>,
     desc: 'Geen zorgen over updates, beveiliging of downtime. Wij houden alles draaiende zodat u zich volledig op uw zaak kunt focussen.',
@@ -272,7 +264,7 @@ const steps = [
   {
     n: '03', dur: 'Week 3–4',
     title: 'Ontwikkeling',
-    desc: 'We bouwen in Next.js — snel, veilig, volledig op maat. U volgt de voortgang en geeft feedback.',
+    desc: 'We bouwen in Next.js of WordPress — afhankelijk van uw budget en noden. Snel, veilig, volledig op maat. U volgt de voortgang en geeft feedback.',
   },
   {
     n: '04', dur: 'Lopend',
