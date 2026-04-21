@@ -565,11 +565,6 @@ function Why() {
 /* ── Contact ─────────────────────────────────────────────── */
 const channels = [
   {
-    dot: 'W', title: 'WhatsApp ons',
-    sub: 'Snelste manier · +32',
-    href: 'https://wa.me/32000000000',
-  },
-  {
     dot: '@', title: 'info@lunevo.be',
     sub: 'E-mail · binnen 24u',
     href: 'mailto:info@lunevo.be',
@@ -628,7 +623,7 @@ function Contact() {
                 fontSize: 17, lineHeight: 1.5,
               }}
             >
-              Stuur een bericht of neem contact op via WhatsApp. Wij antwoorden binnen de 24 uur — gratis eerste gesprek, zonder verplichtingen.
+              Stuur een bericht of vul het offerte-formulier in. Wij antwoorden binnen de 24 uur — gratis eerste gesprek, zonder verplichtingen.
             </p>
           </div>
 

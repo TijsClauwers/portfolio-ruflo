@@ -6,7 +6,7 @@ import type { Metadata } from 'next'
 export const metadata: Metadata = {
   title: 'Contact',
   description:
-    'Neem contact op met Lunevo voor een gratis kennismakingsgesprek. Via WhatsApp, e-mail of het offerte-formulier. Wij antwoorden binnen de 24 uur.',
+    'Neem contact op met Lunevo voor een gratis kennismakingsgesprek. Via e-mail of het offerte-formulier. Wij antwoorden binnen de 24 uur.',
   alternates: { canonical: 'https://lunevo.be/contact' },
   openGraph: {
     title: 'Contact | Lunevo',
@@ -26,7 +26,7 @@ function PageHero() {
           Klaar om online te gaan?
         </h1>
         <p className="text-slate-400 text-lg max-w-xl">
-          Stuur een bericht of neem contact op via WhatsApp. Wij antwoorden binnen de 24 uur.
+          Stuur een bericht of vul het offerte-formulier in. Wij antwoorden binnen de 24 uur.
         </p>
       </div>
     </section>

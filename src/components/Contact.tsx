@@ -2,7 +2,7 @@
 
 import { useState } from 'react'
 import { motion } from 'framer-motion'
-import { Send, MessageCircle, Mail, Globe } from 'lucide-react'
+import { Send, Mail, Globe } from 'lucide-react'
 
 export default function Contact() {
   const [status, setStatus] = useState<'idle' | 'sent'>('idle')
@@ -106,23 +106,6 @@ export default function Contact() {
             transition={{ duration: 0.5 }}
             className="flex flex-col gap-4"
           >
-            <a
-              href="https://wa.me/32000000000"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="flex items-center gap-4 bg-green-500/8 border border-green-500/20 hover:border-green-500/40 rounded-2xl p-5 group transition-all hover:-translate-y-0.5"
-            >
-              <div className="w-12 h-12 bg-green-500/15 rounded-xl flex items-center justify-center flex-shrink-0">
-                <MessageCircle size={22} className="text-green-400" />
-              </div>
-              <div>
-                <div className="font-semibold text-sm group-hover:text-green-300 transition-colors">
-                  Stuur een WhatsApp
-                </div>
-                <div className="text-slate-400 text-xs mt-0.5">Snelste manier om contact op te nemen</div>
-              </div>
-            </a>
-
             <div className="flex items-center gap-4 bg-slate-900/50 border border-white/5 rounded-2xl p-5">
               <div className="w-12 h-12 bg-indigo-500/10 rounded-xl flex items-center justify-center flex-shrink-0">
                 <Mail size={20} className="text-indigo-400" />

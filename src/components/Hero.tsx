@@ -145,7 +145,8 @@ export default function Hero() {
 
           {/* Right: feature cards — flush to top */}
           <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 12 }}>
-            {/* Performance */}
+
+            {/* Lighthouse scores — full width */}
             <div
               style={{
                 gridColumn: '1 / -1',
@@ -153,59 +154,100 @@ export default function Hero() {
                 borderRadius: 16, padding: '16px 20px',
               }}
             >
-              <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: 10 }}>
-                <span style={{ fontSize: 12, fontWeight: 500, color: 'var(--ink-2)' }}>Performance</span>
-                <span style={{ fontSize: 14, color: 'var(--accent)' }}>⚡</span>
+              <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: 14 }}>
+                <span style={{ fontSize: 12, fontWeight: 500, color: 'var(--ink-2)' }}>Lighthouse</span>
+                <span style={{ fontSize: 10, color: 'var(--mute)', fontFamily: 'monospace', letterSpacing: '.04em' }}>lunevo.be</span>
               </div>
-              <div style={{ display: 'flex', alignItems: 'baseline', gap: 4, marginBottom: 8 }}>
-                <span style={{ fontFamily: 'var(--font-bricolage), sans-serif', fontSize: 36, fontWeight: 500, color: 'var(--ink)', letterSpacing: '-0.03em' }}>98</span>
-                <span style={{ fontSize: 14, color: 'var(--mute)' }}>/100</span>
-              </div>
-              <div style={{ height: 4, borderRadius: 2, background: 'rgba(242,236,224,.08)' }}>
-                <div style={{ height: '100%', width: '98%', borderRadius: 2, background: 'var(--accent)' }} />
+              <div style={{ display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)', gap: 8 }}>
+                {[
+                  { score: 98,  label: 'Performance',     color: 'var(--accent)' },
+                  { score: 100, label: 'Accessibility',   color: '#4ade80' },
+                  { score: 100, label: 'Best Practices',  color: '#4ade80' },
+                  { score: 100, label: 'SEO',             color: '#4ade80' },
+                ].map((m) => (
+                  <div
+                    key={m.label}
+                    style={{
+                      display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 5,
+                      padding: '10px 4px',
+                      background: 'rgba(255,255,255,.025)', borderRadius: 10,
+                      border: '1px solid rgba(255,255,255,.04)',
+                    }}
+                  >
+                    <span
+                      style={{
+                        fontFamily: 'var(--font-bricolage), sans-serif',
+                        fontSize: 24, fontWeight: 600,
+                        color: m.color, letterSpacing: '-0.03em',
+                        lineHeight: 1,
+                      }}
+                    >
+                      {m.score}
+                    </span>
+                    <span style={{ fontSize: 9, color: 'var(--mute)', textAlign: 'center', lineHeight: 1.3 }}>{m.label}</span>
+                  </div>
+                ))}
               </div>
             </div>
 
-            {/* SEO */}
+            {/* Core Web Vitals */}
             <div
               style={{
                 background: 'var(--bg-2)', border: '1px solid var(--rule-2)',
                 borderRadius: 16, padding: '14px 16px',
               }}
             >
-              <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: 10 }}>
-                <span style={{ fontSize: 11, fontWeight: 500, color: 'var(--ink-2)' }}>SEO &amp; LLM</span>
-                <span style={{ fontSize: 12, color: 'var(--accent)' }}>S</span>
+              <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: 12 }}>
+                <span style={{ fontSize: 11, fontWeight: 500, color: 'var(--ink-2)' }}>Core Web Vitals</span>
+                <span style={{ fontSize: 9, color: '#4ade80', fontWeight: 600, letterSpacing: '.04em' }}>● PASS</span>
               </div>
-              {['Indexeerbaar', 'Structured data', 'llms.txt', 'Cite-baar'].map((c) => (
-                <div key={c} style={{ display: 'flex', justifyContent: 'space-between', fontSize: 10, marginBottom: 4 }}>
-                  <span style={{ color: 'var(--ink-2)' }}>{c}</span>
-                  <span style={{ color: 'var(--accent)', fontWeight: 700 }}>✓</span>
+              {[
+                { label: 'LCP', value: '1.2s' },
+                { label: 'CLS', value: '0.00' },
+                { label: 'INP', value: '48ms' },
+              ].map((v) => (
+                <div
+                  key={v.label}
+                  style={{
+                    display: 'flex', justifyContent: 'space-between', alignItems: 'center',
+                    fontSize: 10, marginBottom: 7,
+                  }}
+                >
+                  <span style={{ color: 'var(--mute)', fontFamily: 'monospace', letterSpacing: '.06em' }}>{v.label}</span>
+                  <span style={{ color: '#4ade80', fontWeight: 700 }}>{v.value}</span>
                 </div>
               ))}
             </div>
 
-            {/* Mobile-first */}
+            {/* SEO & LLM */}
             <div
               style={{
                 background: 'var(--bg-2)', border: '1px solid var(--rule-2)',
-                borderRadius: 16, padding: '14px 16px', display: 'flex',
-                flexDirection: 'column', alignItems: 'center', gap: 10,
+                borderRadius: 16, padding: '14px 16px',
               }}
             >
-              <span style={{ fontSize: 11, fontWeight: 500, color: 'var(--ink-2)', alignSelf: 'flex-start' }}>Mobiel-first</span>
-              <div
-                style={{
-                  width: 36, height: 52, border: '1.5px solid rgba(255,158,59,.3)',
-                  borderRadius: 8, display: 'flex', flexDirection: 'column',
-                  alignItems: 'center', justifyContent: 'center', gap: 4,
-                }}
-              >
-                <div style={{ width: 20, height: 3, borderRadius: 2, background: 'rgba(255,158,59,.35)' }} />
-                <div style={{ width: 16, height: 3, borderRadius: 2, background: 'rgba(255,158,59,.2)' }} />
-                <div style={{ width: 14, height: 12, borderRadius: 4, background: 'rgba(255,158,59,.15)', marginTop: 2 }} />
+              <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: 12 }}>
+                <span style={{ fontSize: 11, fontWeight: 500, color: 'var(--ink-2)' }}>SEO &amp; LLM-ready</span>
               </div>
+              {[
+                { label: 'Indexeerbaar',   icon: '✓' },
+                { label: 'Structured data', icon: '✓' },
+                { label: 'llms.txt',        icon: '✓' },
+                { label: 'Cite-baar',       icon: '✓' },
+              ].map((c) => (
+                <div
+                  key={c.label}
+                  style={{
+                    display: 'flex', justifyContent: 'space-between', alignItems: 'center',
+                    fontSize: 10, marginBottom: 7,
+                  }}
+                >
+                  <span style={{ color: 'var(--ink-2)' }}>{c.label}</span>
+                  <span style={{ color: 'var(--accent)', fontWeight: 700, fontSize: 11 }}>{c.icon}</span>
+                </div>
+              ))}
             </div>
+
           </div>
         </div>
       </div>
