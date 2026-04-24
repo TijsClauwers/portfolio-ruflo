@@ -12,6 +12,13 @@ export const metadata: Metadata = {
     title: 'Contact | Lunevo',
     description: 'Gratis kennismakingsgesprek. Reactietijd onder 24 uur.',
     url: 'https://lunevo.be/contact',
+    images: [{ url: '/og-image.png', width: 1200, height: 630, alt: 'Lunevo — Contact' }],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Contact | Lunevo',
+    description: 'Gratis kennismakingsgesprek. Stuur een bericht of vul het offerte-formulier in. Reactietijd onder 24 uur.',
+    images: ['/og-image.png'],
   },
 }
 

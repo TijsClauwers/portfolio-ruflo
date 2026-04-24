@@ -16,6 +16,13 @@ export const metadata: Metadata = {
     title: 'Diensten | Lunevo',
     description: 'Next.js, WordPress, SEO en LLM SEO voor uw bedrijf.',
     url: 'https://lunevo.be/diensten',
+    images: [{ url: '/og-image.png', width: 1200, height: 630, alt: 'Lunevo — Diensten' }],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Diensten | Lunevo',
+    description: 'Next.js, WordPress, SEO en LLM SEO voor uw bedrijf. Van brief tot live in 1–4 weken.',
+    images: ['/og-image.png'],
   },
 }
 

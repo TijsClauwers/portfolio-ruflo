@@ -14,6 +14,13 @@ export const metadata: Metadata = {
     title: 'Over ons | Lunevo',
     description: 'Belgische webstudio. Lokale partner, top-bureau kwaliteit.',
     url: 'https://lunevo.be/over-ons',
+    images: [{ url: '/og-image.png', width: 1200, height: 630, alt: 'Lunevo — Over ons' }],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Over ons | Lunevo',
+    description: 'Belgische webstudio opgericht door Tijs Clauwers. Persoonlijk contact, transparante prijzen, top-bureau kwaliteit.',
+    images: ['/og-image.png'],
   },
 }
 

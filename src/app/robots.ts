@@ -9,18 +9,38 @@ export default function robots(): MetadataRoute.Robots {
         userAgent: '*',
         allow: '/',
       },
-      // Explicitly allow LLM crawlers
-      { userAgent: 'GPTBot',          allow: '/' },
-      { userAgent: 'ChatGPT-User',    allow: '/' },
-      { userAgent: 'ClaudeBot',       allow: '/' },
-      { userAgent: 'Claude-Web',      allow: '/' },
-      { userAgent: 'anthropic-ai',    allow: '/' },
-      { userAgent: 'PerplexityBot',   allow: '/' },
-      { userAgent: 'Googlebot',       allow: '/' },
-      { userAgent: 'GoogleOther',     allow: '/' },
-      { userAgent: 'OAI-SearchBot',   allow: '/' },
-      { userAgent: 'cohere-ai',       allow: '/' },
-      { userAgent: 'Meta-ExternalAgent', allow: '/' },
+      // OpenAI / ChatGPT
+      { userAgent: 'GPTBot',              allow: '/' },
+      { userAgent: 'ChatGPT-User',        allow: '/' },
+      { userAgent: 'OAI-SearchBot',       allow: '/' },
+      // Anthropic / Claude
+      { userAgent: 'ClaudeBot',           allow: '/' },
+      { userAgent: 'Claude-Web',          allow: '/' },
+      { userAgent: 'anthropic-ai',        allow: '/' },
+      // Perplexity
+      { userAgent: 'PerplexityBot',       allow: '/' },
+      // Google
+      { userAgent: 'Googlebot',           allow: '/' },
+      { userAgent: 'GoogleOther',         allow: '/' },
+      { userAgent: 'Google-Extended',     allow: '/' },
+      // Meta
+      { userAgent: 'Meta-ExternalAgent',  allow: '/' },
+      { userAgent: 'FacebookBot',         allow: '/' },
+      // xAI / Grok
+      { userAgent: 'Grok',               allow: '/' },
+      // Cohere
+      { userAgent: 'cohere-ai',          allow: '/' },
+      // Apple
+      { userAgent: 'Applebot',           allow: '/' },
+      { userAgent: 'Applebot-Extended',  allow: '/' },
+      // Bing / Copilot
+      { userAgent: 'bingbot',            allow: '/' },
+      // Amazon / Alexa
+      { userAgent: 'Amazonbot',          allow: '/' },
+      // Diffbot (AI knowledge graph)
+      { userAgent: 'Diffbot',            allow: '/' },
+      // Common AI scrapers
+      { userAgent: 'CCBot',              allow: '/' },
     ],
     sitemap: 'https://lunevo.be/sitemap.xml',
     host: 'https://lunevo.be',

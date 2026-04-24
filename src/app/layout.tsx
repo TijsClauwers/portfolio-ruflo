@@ -83,8 +83,9 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <html lang="nl-BE" className={`${inter.variable} ${bricolage.variable}`}>
       <head>
-        <link rel="canonical" href={BASE} />
         <meta name="theme-color" content="#0b0b0d" />
+        <link rel="icon" href="/favicon.ico" sizes="any" />
+        <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
         <JsonLd />
       </head>
       <body className="font-sans antialiased">{children}</body>

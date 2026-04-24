@@ -16,7 +16,7 @@ export default function JsonLd() {
         },
       },
       {
-        '@type': 'ProfessionalService',
+        '@type': ['LocalBusiness', 'ProfessionalService'],
         '@id': 'https://lunevo.be/#business',
         name: 'Lunevo',
         alternateName: 'Lunevo Studio',
@@ -28,6 +28,12 @@ export default function JsonLd() {
         founder: {
           '@type': 'Person',
           name: 'Tijs Clauwers',
+          url: 'https://lunevo.be/over-ons',
+        },
+        address: {
+          '@type': 'PostalAddress',
+          addressCountry: 'BE',
+          addressRegion: 'Vlaanderen',
         },
         areaServed: [
           { '@type': 'Country', name: 'Belgium' },
@@ -41,6 +47,9 @@ export default function JsonLd() {
         currenciesAccepted: 'EUR',
         openingHours: 'Mo-Fr 09:00-18:00',
         knowsLanguage: ['nl', 'en'],
+        sameAs: [
+          'https://lunevo.be',
+        ],
         hasOfferCatalog: {
           '@type': 'OfferCatalog',
           name: 'Webdiensten',
@@ -52,6 +61,7 @@ export default function JsonLd() {
                 name: 'Maatwerk website (Next.js)',
                 description:
                   'Volledig op maat gebouwde website in Next.js — snel, veilig en SEO-geoptimaliseerd.',
+                url: 'https://lunevo.be/diensten',
               },
             },
             {
@@ -61,6 +71,7 @@ export default function JsonLd() {
                 name: 'WordPress website',
                 description:
                   'Professionele WordPress website voor kleinere budgetten. Snel online en makkelijk te beheren.',
+                url: 'https://lunevo.be/diensten',
               },
             },
             {
@@ -70,6 +81,7 @@ export default function JsonLd() {
                 name: 'SEO-optimalisatie',
                 description:
                   'Structured data, meta-tags, sitemap en Core Web Vitals voor maximale vindbaarheid in Google.',
+                url: 'https://lunevo.be/diensten',
               },
             },
             {
@@ -79,6 +91,7 @@ export default function JsonLd() {
                 name: 'LLM SEO-optimalisatie',
                 description:
                   'Vindbaar in ChatGPT, Perplexity en Google AI via llms.txt, FAQ-schema en entity markup.',
+                url: 'https://lunevo.be/diensten',
               },
             },
             {
@@ -88,10 +101,47 @@ export default function JsonLd() {
                 name: 'Website beheer',
                 description:
                   'Doorlopend onderhoud, updates en monitoring van uw website.',
+                url: 'https://lunevo.be/diensten',
               },
             },
           ],
         },
+      },
+      {
+        '@type': 'BreadcrumbList',
+        '@id': 'https://lunevo.be/#breadcrumbs',
+        itemListElement: [
+          {
+            '@type': 'ListItem',
+            position: 1,
+            name: 'Home',
+            item: 'https://lunevo.be',
+          },
+          {
+            '@type': 'ListItem',
+            position: 2,
+            name: 'Diensten',
+            item: 'https://lunevo.be/diensten',
+          },
+          {
+            '@type': 'ListItem',
+            position: 3,
+            name: 'Over ons',
+            item: 'https://lunevo.be/over-ons',
+          },
+          {
+            '@type': 'ListItem',
+            position: 4,
+            name: 'Contact',
+            item: 'https://lunevo.be/contact',
+          },
+          {
+            '@type': 'ListItem',
+            position: 5,
+            name: 'Offerte aanvragen',
+            item: 'https://lunevo.be/offerte',
+          },
+        ],
       },
       {
         '@type': 'FAQPage',
@@ -143,6 +193,30 @@ export default function JsonLd() {
             acceptedAnswer: {
               '@type': 'Answer',
               text: 'Lunevo is gevestigd in België en werkt ook remote wereldwijd. Persoonlijke afspraken zijn altijd mogelijk.',
+            },
+          },
+          {
+            '@type': 'Question',
+            name: 'Kan ik mijn eigen content beheren na oplevering?',
+            acceptedAnswer: {
+              '@type': 'Answer',
+              text: 'Ja. Lunevo integreert Sanity CMS zodat u teksten, afbeeldingen en pagina\'s zelf kunt aanpassen via een eenvoudig dashboard. Geen technische kennis vereist.',
+            },
+          },
+          {
+            '@type': 'Question',
+            name: 'Hoe snel laadt een website van Lunevo?',
+            acceptedAnswer: {
+              '@type': 'Answer',
+              text: 'Websites van Lunevo scoren gemiddeld 98/100 op Lighthouse performance. De gemiddelde laadtijd is onder de 2 seconden dankzij Next.js static generation en edge hosting.',
+            },
+          },
+          {
+            '@type': 'Question',
+            name: 'Wat is het verschil tussen Next.js en WordPress?',
+            acceptedAnswer: {
+              '@type': 'Answer',
+              text: 'Next.js levert maximale performance, beveiliging en schaalbaarheid — ideaal voor ambitieuze projecten. WordPress is de juiste keuze voor kleinere budgetten met een eenvoudige beheerinterface. Lunevo helpt u de beste keuze te maken op basis van uw doelen.',
             },
           },
         ],
