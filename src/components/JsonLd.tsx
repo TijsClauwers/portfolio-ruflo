@@ -22,6 +22,8 @@ export default function JsonLd() {
         alternateName: 'Lunevo Studio',
         url: 'https://lunevo.be',
         email: 'info@lunevo.be',
+        taxID: 'BE 1036.645.433',
+        vatID: 'BE 1036.645.433',
         description:
           'Lunevo bouwt snelle, mooie websites voor lokale KMO\'s en gedurfde merken in België. Maatwerk design, Next.js of WordPress, SEO en LLM SEO in één traject.',
         foundingDate: '2024',

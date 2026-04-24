@@ -11,6 +11,7 @@
 - **Vestigingsland**: België (Vlaanderen)
 - **Talen**: Nederlands, Engels
 - **Werkgebied**: België, Nederland en remote wereldwijd
+- **BTW-nummer**: BE 1036.645.433
 - **Contacte-mail**: info@lunevo.be
 - **Website**: https://lunevo.be
 - **Openingsuren**: maandag–vrijdag 09:00–18:00
