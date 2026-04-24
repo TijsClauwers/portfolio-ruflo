@@ -19,13 +19,13 @@ export default function Footer() {
             Lu<span className="text-indigo-400">nevo</span>
           </span>
         </Link>
-        <p className="text-slate-500 text-xs text-center">
+        <p className="text-slate-400 text-xs text-center">
           © {new Date().getFullYear()} Lunevo — Webbureau, België
-          <span className="block sm:inline sm:ml-2 opacity-60">BTW BE 1036.645.433</span>
+          <span className="block sm:inline sm:ml-2 text-slate-500">BTW BE 1036.645.433</span>
         </p>
-        <div className="flex gap-4 text-xs text-slate-500">
-          <Link href="#" className="hover:text-slate-300 transition-colors">Privacy</Link>
-          <Link href="/contact" className="hover:text-slate-300 transition-colors">Contact</Link>
+        <div className="flex gap-4 text-xs text-slate-400">
+          <Link href="#" className="underline underline-offset-2 hover:text-white transition-colors">Privacy</Link>
+          <Link href="/contact" className="underline underline-offset-2 hover:text-white transition-colors">Contact</Link>
         </div>
       </div>
     </footer>
