@@ -153,13 +153,13 @@ const services = [
     flag: 'Nieuw',
     detail: {
       heading: 'De toekomst van zoeken is hier',
-      why: 'Steeds meer mensen stellen vragen aan ChatGPT, Google AI of Perplexity in plaats van zelf te zoeken. Zij vragen: "Welk webbureau in België is goed voor kleine bedrijven?" — en de AI geeft direct een aanbeveling. Als uw bedrijf daar niet bij staat, mist u die klant volledig.',
+      why: 'Steeds meer mensen stellen vragen aan ChatGPT, Google AI of Perplexity in plaats van zelf te zoeken. Zij vragen: "Welk webbureau in België is goed voor kleine bedrijven?" — en de AI geeft direct een aanbeveling. Als uw website niet begrijpbaar is voor AI, bent u onzichtbaar.',
       bullets: [
-        'Uw bedrijf wordt aanbevolen door ChatGPT, Perplexity en Google AI',
+        'Wij optimaliseren uw website zodat AI-modellen u kunnen lezen en begrijpen',
         'Vroeg instappen = grote voorsprong op concurrenten die dit nog niet doen',
-        'AI-modellen citeren uw merk correct en positief',
-        'Speciaal llms.txt-bestand en FAQ-structuur die AI-assistenten begrijpen',
-        'Miljoenen mensen gebruiken dagelijks AI als zoekmachine — wees zichtbaar',
+        'Correct gestructureerde data zodat uw merk positief geciteerd kan worden',
+        'Speciaal llms.txt-bestand en FAQ-structuur die AI-assistenten herkennen',
+        'Miljoenen mensen gebruiken dagelijks AI als zoekmachine — wees klaar',
       ],
     },
   },

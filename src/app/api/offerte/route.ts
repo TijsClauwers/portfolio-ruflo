@@ -9,7 +9,7 @@ export async function POST(req: NextRequest) {
   try {
     await resend.emails.send({
       from: 'Lunevo Offerte <onboarding@resend.dev>',
-      to: 'streamerbtw293@gmail.com',
+      to: 'clauwerstijs@gmail.com',
       replyTo: email,
       subject: `Nieuwe offerte aanvraag — ${naam}${bedrijf ? ` (${bedrijf})` : ''}`,
       html: `

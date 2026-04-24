@@ -2,7 +2,7 @@
 
 import { useState } from 'react'
 import { motion } from 'framer-motion'
-import { Send, Mail, Globe } from 'lucide-react'
+import { Send, Mail, Globe, FileText } from 'lucide-react'
 
 export default function Contact() {
   const [status, setStatus] = useState<'idle' | 'sent'>('idle')
@@ -106,6 +106,21 @@ export default function Contact() {
             transition={{ duration: 0.5 }}
             className="flex flex-col gap-4"
           >
+            <a
+              href="/offerte"
+              className="flex items-center gap-4 bg-orange-500/8 border border-orange-500/20 hover:border-orange-500/40 rounded-2xl p-5 group transition-all hover:-translate-y-0.5"
+            >
+              <div className="w-12 h-12 bg-orange-500/15 rounded-xl flex items-center justify-center flex-shrink-0">
+                <FileText size={20} className="text-orange-400" />
+              </div>
+              <div>
+                <div className="font-semibold text-sm group-hover:text-orange-300 transition-colors">
+                  Offerte aanvragen
+                </div>
+                <div className="text-slate-400 text-xs mt-0.5">3 minuten — volledig vrijblijvend</div>
+              </div>
+            </a>
+
             <div className="flex items-center gap-4 bg-slate-900/50 border border-white/5 rounded-2xl p-5">
               <div className="w-12 h-12 bg-indigo-500/10 rounded-xl flex items-center justify-center flex-shrink-0">
                 <Mail size={20} className="text-indigo-400" />

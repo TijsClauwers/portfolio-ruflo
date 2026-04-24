@@ -40,10 +40,11 @@ const functieOptions = [
 ]
 
 const budgetOptions = [
-  { value: '< €500',       label: '< €500',       sub: 'Instapproject' },
-  { value: '€500 – €1000', label: '€500 – €1.000', sub: 'Standaard'    },
-  { value: '€1000 – €2500',label: '€1.000 – €2.500',sub: 'Premium'     },
-  { value: '> €2500',      label: '> €2.500',      sub: 'Maatwerk'     },
+  { value: '< €500',               label: '< €500',         sub: 'Instapproject'        },
+  { value: '€500 – €1000',         label: '€500 – €1.000',  sub: 'Standaard'            },
+  { value: '€1000 – €2500',        label: '€1.000 – €2.500',sub: 'Premium'              },
+  { value: '> €2500',              label: '> €2.500',        sub: 'Maatwerk'             },
+  { value: 'Bespreken we samen',   label: 'Nog niet zeker',  sub: 'Bespreken we samen'   },
 ]
 
 const deadlineOptions = [
@@ -178,27 +179,27 @@ function Step2({ data, set }: { data: FormData; set: (d: Partial<FormData>) => v
 
       <div>
         <label style={labelStyle}>Welke functies wilt u? (meerdere mogelijk)</label>
-        <div style={{ display: 'flex', flexWrap: 'wrap', gap: 8 }}>
+        <div style={{ display: 'flex', flexWrap: 'wrap', gap: 8, marginBottom: 10 }}>
           {functieOptions.map((f) => {
             const active = data.functies.includes(f)
+            const discussSelected = data.functies.includes('Bespreken we samen')
             return (
               <button
                 key={f}
                 type="button"
-                onClick={() =>
-                  set({
-                    functies: active
-                      ? data.functies.filter((x) => x !== f)
-                      : [...data.functies, f],
-                  })
-                }
+                onClick={() => {
+                  // Remove "bespreken" marker when a real option is picked
+                  const without = data.functies.filter((x) => x !== 'Bespreken we samen' && x !== f)
+                  set({ functies: active ? without : [...without, f] })
+                }}
                 style={{
                   padding: '8px 14px', borderRadius: 999, cursor: 'pointer',
                   fontSize: 13, fontWeight: active ? 500 : 400,
                   background: active ? 'rgba(255,158,59,.12)' : 'var(--bg-2)',
                   border: `1px solid ${active ? 'rgba(255,158,59,.4)' : 'var(--rule-2)'}`,
-                  color: active ? 'var(--accent-2)' : 'var(--ink-2)',
+                  color: active ? 'var(--accent-2)' : discussSelected ? 'var(--mute)' : 'var(--ink-2)',
                   transition: 'all .15s',
+                  opacity: discussSelected && !active ? 0.5 : 1,
                 }}
               >
                 {active ? '✓ ' : ''}{f}
@@ -206,6 +207,31 @@ function Step2({ data, set }: { data: FormData; set: (d: Partial<FormData>) => v
             )
           })}
         </div>
+        {/* "Not sure" option */}
+        {(() => {
+          const active = data.functies.includes('Bespreken we samen')
+          return (
+            <button
+              type="button"
+              onClick={() => set({ functies: active ? [] : ['Bespreken we samen'] })}
+              style={{
+                display: 'flex', alignItems: 'center', gap: 8,
+                padding: '10px 16px', borderRadius: 12, cursor: 'pointer',
+                fontSize: 13, fontWeight: active ? 500 : 400,
+                background: active ? 'rgba(255,158,59,.08)' : 'transparent',
+                border: `1px solid ${active ? 'rgba(255,158,59,.35)' : 'var(--rule-2)'}`,
+                color: active ? 'var(--accent-2)' : 'var(--mute)',
+                transition: 'all .15s', width: '100%',
+              }}
+            >
+              <span style={{ fontSize: 15 }}>💬</span>
+              <div style={{ textAlign: 'left' }}>
+                <div>{active ? '✓ ' : ''}Bespreken we tijdens het gesprek</div>
+                <div style={{ fontSize: 11, color: 'var(--mute)', marginTop: 1, fontWeight: 400 }}>Nog niet zeker — geen probleem, we bekijken het samen</div>
+              </div>
+            </button>
+          )
+        })()}
       </div>
     </div>
   )
@@ -216,8 +242,8 @@ function Step3({ data, set }: { data: FormData; set: (d: Partial<FormData>) => v
     <div style={{ display: 'flex', flexDirection: 'column', gap: 28 }}>
       <div>
         <label style={labelStyle}>Wat is uw budget? *</label>
-        <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 10 }}>
-          {budgetOptions.map((b) => {
+        <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 10, marginBottom: 10 }}>
+          {budgetOptions.filter(b => b.value !== 'Bespreken we samen').map((b) => {
             const active = data.budget === b.value
             return (
               <button
@@ -231,13 +257,7 @@ function Step3({ data, set }: { data: FormData; set: (d: Partial<FormData>) => v
                   color: 'var(--ink)', textAlign: 'left', transition: 'all .15s',
                 }}
               >
-                <div
-                  style={{
-                    fontFamily: 'var(--font-bricolage), sans-serif',
-                    fontSize: 20, fontWeight: 500, letterSpacing: '-0.02em',
-                    color: active ? 'var(--accent)' : 'var(--ink)',
-                  }}
-                >
+                <div style={{ fontFamily: 'var(--font-bricolage), sans-serif', fontSize: 20, fontWeight: 500, letterSpacing: '-0.02em', color: active ? 'var(--accent)' : 'var(--ink)' }}>
                   {b.label}
                 </div>
                 <div style={{ fontSize: 11, color: 'var(--mute)', marginTop: 4, letterSpacing: '.04em', textTransform: 'uppercase' }}>
@@ -247,6 +267,29 @@ function Step3({ data, set }: { data: FormData; set: (d: Partial<FormData>) => v
             )
           })}
         </div>
+        {/* Not sure option */}
+        {(() => {
+          const active = data.budget === 'Bespreken we samen'
+          return (
+            <button
+              type="button"
+              onClick={() => set({ budget: active ? '' : 'Bespreken we samen' })}
+              style={{
+                display: 'flex', alignItems: 'center', gap: 8, width: '100%',
+                padding: '12px 16px', borderRadius: 12, cursor: 'pointer',
+                background: active ? 'rgba(255,158,59,.08)' : 'transparent',
+                border: `1px solid ${active ? 'rgba(255,158,59,.35)' : 'var(--rule-2)'}`,
+                color: active ? 'var(--accent-2)' : 'var(--mute)',
+                transition: 'all .15s', textAlign: 'left',
+              }}
+            >
+              <span style={{ fontSize: 15 }}>💬</span>
+              <div>
+                <div style={{ fontSize: 13, fontWeight: active ? 500 : 400 }}>{active ? '✓ ' : ''}Nog niet zeker — bespreken we tijdens het gesprek</div>
+              </div>
+            </button>
+          )
+        })()}
       </div>
 
       <div>
