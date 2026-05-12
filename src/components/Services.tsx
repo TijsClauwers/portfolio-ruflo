@@ -14,13 +14,13 @@ type SanityService = {
 
 const defaultServices: SanityService[] = [
   {
-    _id: 'default-1',
-    title: 'Maatwerk CMS',
+    _id: 'default-3',
+    title: 'Website beheer',
     description:
-      'Beheer uw eigen content via een eenvoudig dashboard. Teksten, afbeeldingen en pagina\'s aanpassen wanneer u wil — geen technische kennis nodig.',
-    tags: ['Sanity CMS', 'Eigen beheer', 'Geen technische kennis'],
-    colorTheme: 'orange',
-    iconName: 'LayoutDashboard',
+      'Geen zorgen over updates, beveiliging of downtime. Wij houden alles draaiende zodat u zich volledig op uw zaak kunt focussen.',
+    tags: ['Onderhoud', 'Monitoring', 'Geen zorgen'],
+    colorTheme: 'emerald',
+    iconName: 'Wrench',
   },
   {
     _id: 'default-2',
@@ -32,13 +32,13 @@ const defaultServices: SanityService[] = [
     iconName: 'Search',
   },
   {
-    _id: 'default-3',
-    title: 'Website beheer',
+    _id: 'default-1',
+    title: 'Maatwerk CMS',
     description:
-      'Geen zorgen over updates, beveiliging of downtime. Wij houden alles draaiende zodat u zich volledig op uw zaak kunt focussen.',
-    tags: ['Onderhoud', 'Monitoring', 'Geen zorgen'],
-    colorTheme: 'emerald',
-    iconName: 'Wrench',
+      'Op maat gebouwde WordPress-templates zodat u zelf foto\'s kunt vervangen, evenementen toevoegen en nieuwtjes plaatsen — zonder ontwikkelaar te bellen.',
+    tags: ['WordPress', 'Foto\'s beheren', 'Evenementen', 'Eenvoudig beheer'],
+    colorTheme: 'orange',
+    iconName: 'LayoutDashboard',
   },
 ]
 
