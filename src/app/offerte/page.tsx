@@ -11,7 +11,6 @@ interface FormData {
   telefoon: string
   type: string
   functies: string[]
-  budget: string
   deadline: string
   extra: string
 }
@@ -37,14 +36,6 @@ const functieOptions = [
   'Animaties',
   'Fotografie/beeldwerk',
   'Onderhoud & beheer',
-]
-
-const budgetOptions = [
-  { value: '< €500',               label: '< €500',         sub: 'Instapproject'        },
-  { value: '€500 – €1000',         label: '€500 – €1.000',  sub: 'Standaard'            },
-  { value: '€1000 – €2500',        label: '€1.000 – €2.500',sub: 'Premium'              },
-  { value: '> €2500',              label: '> €2.500',        sub: 'Maatwerk'             },
-  { value: 'Bespreken we samen',   label: 'Nog niet zeker',  sub: 'Bespreken we samen'   },
 ]
 
 const deadlineOptions = [
@@ -241,58 +232,6 @@ function Step3({ data, set }: { data: FormData; set: (d: Partial<FormData>) => v
   return (
     <div style={{ display: 'flex', flexDirection: 'column', gap: 28 }}>
       <div>
-        <label style={labelStyle}>Wat is uw budget? *</label>
-        <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 10, marginBottom: 10 }}>
-          {budgetOptions.filter(b => b.value !== 'Bespreken we samen').map((b) => {
-            const active = data.budget === b.value
-            return (
-              <button
-                key={b.value}
-                type="button"
-                onClick={() => set({ budget: b.value })}
-                style={{
-                  padding: '16px 20px', borderRadius: 12, cursor: 'pointer',
-                  background: active ? 'rgba(255,158,59,.1)' : 'var(--bg-2)',
-                  border: `1px solid ${active ? 'var(--accent)' : 'var(--rule-2)'}`,
-                  color: 'var(--ink)', textAlign: 'left', transition: 'all .15s',
-                }}
-              >
-                <div style={{ fontFamily: 'var(--font-bricolage), sans-serif', fontSize: 20, fontWeight: 500, letterSpacing: '-0.02em', color: active ? 'var(--accent)' : 'var(--ink)' }}>
-                  {b.label}
-                </div>
-                <div style={{ fontSize: 11, color: 'var(--mute)', marginTop: 4, letterSpacing: '.04em', textTransform: 'uppercase' }}>
-                  {b.sub}
-                </div>
-              </button>
-            )
-          })}
-        </div>
-        {/* Not sure option */}
-        {(() => {
-          const active = data.budget === 'Bespreken we samen'
-          return (
-            <button
-              type="button"
-              onClick={() => set({ budget: active ? '' : 'Bespreken we samen' })}
-              style={{
-                display: 'flex', alignItems: 'center', gap: 8, width: '100%',
-                padding: '12px 16px', borderRadius: 12, cursor: 'pointer',
-                background: active ? 'rgba(255,158,59,.08)' : 'transparent',
-                border: `1px solid ${active ? 'rgba(255,158,59,.35)' : 'var(--rule-2)'}`,
-                color: active ? 'var(--accent-2)' : 'var(--mute)',
-                transition: 'all .15s', textAlign: 'left',
-              }}
-            >
-              <span style={{ fontSize: 15 }}>💬</span>
-              <div>
-                <div style={{ fontSize: 13, fontWeight: active ? 500 : 400 }}>{active ? '✓ ' : ''}Nog niet zeker — bespreken we tijdens het gesprek</div>
-              </div>
-            </button>
-          )
-        })()}
-      </div>
-
-      <div>
         <label style={labelStyle}>Wanneer wilt u live gaan? *</label>
         <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 10 }}>
           {deadlineOptions.map((d) => {
@@ -365,7 +304,6 @@ function Step4({ data, set }: { data: FormData; set: (d: Partial<FormData>) => v
             { l: 'Naam',     v: data.naam   },
             { l: 'E-mail',   v: data.email  },
             { l: 'Type',     v: data.type   },
-            { l: 'Budget',   v: data.budget },
             { l: 'Deadline', v: data.deadline },
           ].map((r) => (
             <div key={r.l} style={{ display: 'flex', gap: 12 }}>
@@ -395,13 +333,13 @@ const stepTitles = [
 
 const emptyForm: FormData = {
   naam: '', bedrijf: '', email: '', telefoon: '',
-  type: '', functies: [], budget: '', deadline: '', extra: '',
+  type: '', functies: [], deadline: '', extra: '',
 }
 
 function canProceed(step: number, data: FormData) {
   if (step === 0) return !!data.naam.trim() && !!data.email.trim()
   if (step === 1) return !!data.type
-  if (step === 2) return !!data.budget && !!data.deadline
+  if (step === 2) return !!data.deadline
   return true
 }
 
