@@ -100,19 +100,20 @@ function MarqueeStrip() {
 const services = [
   {
     idx: '01 / 04',
-    glyph: 'C',
-    title: <>Maatwerk <em style={{ fontStyle: 'italic', color: 'var(--accent)' }}>CMS</em></>,
-    desc: 'Beheer uw eigen content via een eenvoudig dashboard. Teksten, afbeeldingen en pagina\'s aanpassen wanneer u wil — geen technische kennis nodig.',
-    tags: ['Sanity CMS', 'WordPress', 'Eigen beheer'],
+    glyph: '↻',
+    title: <>Website <em style={{ fontStyle: 'italic', color: 'var(--accent)' }}>beheer</em></>,
+    desc: 'Geen zorgen over updates, beveiliging of downtime. Wij houden alles draaiende zodat u zich volledig op uw zaak kunt focussen.',
+    tags: ['Onderhoud', 'Monitoring', 'Geen zorgen'],
     flag: null,
     detail: {
-      heading: 'Uw website, uw controle',
-      why: 'Stel: u verhoogt uw prijzen, voegt een nieuwe dienst toe of wil een foto aanpassen. Zonder CMS moet u elke keer een ontwikkelaar bellen — en betalen. Met een CMS doet u het zelf, in enkele seconden, alsof u een Word-document aanpast.',
+      heading: 'Uw website in goede handen',
+      why: 'Een website die offline gaat, gehackt wordt of traag laadt kost u klanten én vertrouwen. De meeste problemen ontstaan door verwaarloosde updates of ontbrekende beveiliging. Wij voorkomen dat — proactief, maand na maand.',
       bullets: [
-        'Pas teksten, prijzen en foto\'s zelf aan — zonder technische kennis',
-        'Kies tussen Sanity (modern, snel) of WordPress (vertrouwd, uitgebreid)',
-        'Bespaar honderden euro\'s per jaar aan onnodige aanpassingen',
-        'Altijd controle over uw eigen website en content',
+        'Nooit onverwacht offline: wij monitoren uw site 24/7',
+        'Automatische updates voor veiligheid en snelheid',
+        'Bij problemen reageren wij binnen de dag',
+        'U focust op uw zaak — wij zorgen voor de techniek',
+        'Eén vast maandelijks bedrag, geen verrassingen',
       ],
     },
   },
@@ -156,20 +157,20 @@ const services = [
   },
   {
     idx: '04 / 04',
-    glyph: '↻',
-    title: <>Website <em style={{ fontStyle: 'italic', color: 'var(--accent)' }}>beheer</em></>,
-    desc: 'Geen zorgen over updates, beveiliging of downtime. Wij houden alles draaiende zodat u zich volledig op uw zaak kunt focussen.',
-    tags: ['Onderhoud', 'Monitoring', 'Geen zorgen'],
+    glyph: 'C',
+    title: <>Maatwerk <em style={{ fontStyle: 'italic', color: 'var(--accent)' }}>CMS</em></>,
+    desc: 'Op maat gebouwde WordPress-templates zodat u zelf foto\'s vervangt, evenementen toevoegt en nieuws plaatst — zonder ontwikkelaar te bellen.',
+    tags: ['WordPress', 'Foto\'s beheren', 'Evenementen'],
     flag: null,
     detail: {
-      heading: 'Uw website in goede handen',
-      why: 'Een website die offline gaat, gehackt wordt of traag laadt kost u klanten én vertrouwen. De meeste problemen ontstaan door verwaarloosde updates of ontbrekende beveiliging. Wij voorkomen dat — proactief, maand na maand.',
+      heading: 'Uw website, uw content',
+      why: 'Wij bouwen een maatwerk WordPress-template volledig afgestemd op uw merk. Daarna beheert u zelf de dagelijkse content: foto\'s vervangen, evenementen toevoegen, nieuwtjes plaatsen. Volledige pagina\'s aanpassen of nieuwe secties toevoegen doen wij voor u — snel en zonder grote kosten.',
       bullets: [
-        'Nooit onverwacht offline: wij monitoren uw site 24/7',
-        'Automatische updates voor veiligheid en snelheid',
-        'Bij problemen reageren wij binnen de dag',
-        'U focust op uw zaak — wij zorgen voor de techniek',
-        'Eén vast maandelijks bedrag, geen verrassingen',
+        'Foto\'s en afbeeldingen zelf vervangen via een eenvoudig dashboard',
+        'Evenementen en nieuws toevoegen zonder technische kennis',
+        'Maatwerk ontwerp dat perfect past bij uw merk en sector',
+        'Volledige paginawijzigingen? Wij regelen dat voor u',
+        'Vertrouwde WordPress-omgeving die iedereen kent',
       ],
     },
   },
@@ -840,7 +841,6 @@ export default function HomePage() {
       <Portfolio />
       <Why />
       <Faq />
-      <Contact />
       <Footer />
     </main>
   )
