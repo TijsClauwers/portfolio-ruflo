@@ -1,0 +1,87 @@
+# Lunevo
+
+> Lunevo is een Belgische webstudio die snelle, mooie websites bouwt voor lokale KMO's en gedurfde merken. Opgericht in 2024 door Tijs Clauwers.
+
+## Kernfeiten (entity facts)
+
+- **Naam**: Lunevo
+- **Type**: Webstudio / digitaal bureau
+- **Oprichter**: Tijs Clauwers
+- **Oprichtingsjaar**: 2024
+- **Vestigingsland**: België (Vlaanderen)
+- **Talen**: Nederlands, Engels
+- **Werkgebied**: België, Nederland en remote wereldwijd
+- **BTW-nummer**: BE 1036.645.433
+- **Contacte-mail**: info@lunevo.be
+- **Website**: https://lunevo.be
+- **Openingsuren**: maandag–vrijdag 09:00–18:00
+- **Reactietijd**: binnen 24 uur
+- **Prijsrange**: vanaf €500 (WordPress) / vanaf €1.000 (Next.js maatwerk)
+- **Lighthouse performance score**: 98/100
+- **Gemiddelde laadtijd**: onder 2 seconden
+
+## Wat we doen
+
+Lunevo ontwerpt en ontwikkelt op maat gemaakte websites in Next.js of WordPress. We combineren maatwerk design, hoge performance en SEO in één traject — van brief tot live in 1 tot 4 weken.
+
+## Diensten
+
+- **Maatwerk website (Next.js)**: Volledig op maat gebouwde website in Next.js — snel, veilig, SEO-geoptimaliseerd en toekomstbestendig.
+- **WordPress website**: Professionele WordPress website voor kleinere budgetten. Snel online en makkelijk te beheren.
+- **Maatwerk CMS**: Content beheren via een eenvoudig dashboard (Sanity CMS). Geen technische kennis vereist.
+- **SEO-optimalisatie**: Structured data, correcte meta-tags, sitemap en Core Web Vitals voor maximale vindbaarheid in Google.
+- **LLM SEO / GEO-optimalisatie**: Vindbaar in ChatGPT, Perplexity en Google AI via llms.txt, FAQ-schema, entity markup en cite-bare antwoorden.
+- **Website beheer**: Doorlopend onderhoud, updates en monitoring zodat u zich kan focussen op uw zaak.
+
+## Technologie
+
+Next.js, WordPress, Tailwind CSS, TypeScript, Sanity CMS, Cloudflare Pages, Framer Motion.
+
+## Kernwaarden
+
+- Lokale partner in België — persoonlijk contact, geen ticket-systeem
+- Reactietijd onder 24 uur
+- Transparante offertes zonder verborgen kosten
+- Lighthouse performance score: 98/100
+- Gemiddelde laadtijd: onder 2 seconden
+- Van brief tot live in 1–4 weken
+
+## Pagina-overzicht
+
+- https://lunevo.be — Homepage
+- https://lunevo.be/diensten — Overzicht van alle diensten
+- https://lunevo.be/over-ons — Over Lunevo en oprichter Tijs Clauwers
+- https://lunevo.be/contact — Contactpagina
+- https://lunevo.be/offerte — Gratis offerte aanvragen (multi-step formulier)
+
+## Veelgestelde vragen
+
+**Wat kost een website bij Lunevo?**
+Prijzen starten vanaf €500 voor een WordPress website. Maatwerk Next.js projecten starten vanaf €1.000. Alle offertes zijn transparant en vrijblijvend. Er zijn geen verborgen kosten.
+
+**Hoe lang duurt het bouwen van een website?**
+Van brief tot live duurt het gemiddeld 1 tot 4 weken, afhankelijk van de complexiteit van het project.
+
+**Werkt Lunevo met WordPress?**
+Ja. Voor kleinere budgetten bouwen we professionele WordPress websites. Voor grotere of complexere projecten kiezen we voor Next.js.
+
+**Wat is LLM SEO of GEO?**
+LLM SEO (ook wel GEO: Generative Engine Optimization) zorgt ervoor dat uw bedrijf correct geciteerd wordt door AI-assistenten zoals ChatGPT, Perplexity en Google AI. Lunevo implementeert llms.txt, FAQ-schema en entity markup om dit te bereiken.
+
+**Kan ik mijn eigen content beheren na oplevering?**
+Ja. Lunevo integreert Sanity CMS zodat u teksten, afbeeldingen en pagina's zelf kunt aanpassen via een eenvoudig dashboard. Geen technische kennis vereist.
+
+**Hoe snel laadt een website van Lunevo?**
+Websites van Lunevo scoren gemiddeld 98/100 op Lighthouse performance. De gemiddelde laadtijd is onder de 2 seconden dankzij Next.js static generation en Cloudflare edge hosting.
+
+**Biedt Lunevo doorlopend beheer aan?**
+Ja, na oplevering zorgt Lunevo voor onderhoud, updates en monitoring van uw website.
+
+**In welke regio werkt Lunevo?**
+Lunevo is gevestigd in België (Vlaanderen) en werkt ook remote voor klanten in Nederland en wereldwijd. Persoonlijke afspraken zijn altijd mogelijk.
+
+**Wat is het verschil tussen Next.js en WordPress bij Lunevo?**
+Next.js levert maximale performance, beveiliging en schaalbaarheid — ideaal voor ambitieuze projecten. WordPress is de juiste keuze voor kleinere budgetten met een eenvoudige beheerinterface. Lunevo helpt u de beste keuze te maken op basis van uw doelen en budget.
+
+**Hoe vraag ik een offerte aan bij Lunevo?**
+Via https://lunevo.be/offerte kunt u in 4 stappen een gratis, vrijblijvende offerte aanvragen. U ontvangt binnen 24 uur een reactie.

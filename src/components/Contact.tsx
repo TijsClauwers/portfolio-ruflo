@@ -2,7 +2,7 @@
 
 import { useState } from 'react'
 import { motion } from 'framer-motion'
-import { Send, MessageCircle, Mail, Globe } from 'lucide-react'
+import { Send, Mail, Globe, FileText } from 'lucide-react'
 
 export default function Contact() {
   const [status, setStatus] = useState<'idle' | 'sent'>('idle')
@@ -13,24 +13,8 @@ export default function Contact() {
   }
 
   return (
-    <section id="contact" className="py-24 px-4 sm:px-6">
+    <section className="py-16 px-4 sm:px-6">
       <div className="max-w-6xl mx-auto">
-        <motion.div
-          initial={{ opacity: 0, y: 24 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: '-60px' }}
-          transition={{ duration: 0.6 }}
-          className="text-center mb-16"
-        >
-          <p className="text-indigo-400 text-sm font-semibold uppercase tracking-widest mb-3">
-            Contact
-          </p>
-          <h2 className="text-3xl sm:text-4xl font-bold mb-4">Klaar om online te gaan?</h2>
-          <p className="text-slate-400 max-w-xl mx-auto">
-            Stuur een bericht of neem contact op via WhatsApp. Wij antwoorden binnen de 24 uur.
-          </p>
-        </motion.div>
-
         <div className="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
           {/* Form */}
           <motion.div
@@ -123,19 +107,17 @@ export default function Contact() {
             className="flex flex-col gap-4"
           >
             <a
-              href="https://wa.me/32000000000"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="flex items-center gap-4 bg-green-500/8 border border-green-500/20 hover:border-green-500/40 rounded-2xl p-5 group transition-all hover:-translate-y-0.5"
+              href="/offerte"
+              className="flex items-center gap-4 bg-orange-500/8 border border-orange-500/20 hover:border-orange-500/40 rounded-2xl p-5 group transition-all hover:-translate-y-0.5"
             >
-              <div className="w-12 h-12 bg-green-500/15 rounded-xl flex items-center justify-center flex-shrink-0">
-                <MessageCircle size={22} className="text-green-400" />
+              <div className="w-12 h-12 bg-orange-500/15 rounded-xl flex items-center justify-center flex-shrink-0">
+                <FileText size={20} className="text-orange-400" />
               </div>
               <div>
-                <div className="font-semibold text-sm group-hover:text-green-300 transition-colors">
-                  Stuur een WhatsApp
+                <div className="font-semibold text-sm group-hover:text-orange-300 transition-colors">
+                  Offerte aanvragen
                 </div>
-                <div className="text-slate-400 text-xs mt-0.5">Snelste manier om contact op te nemen</div>
+                <div className="text-slate-400 text-xs mt-0.5">3 minuten — volledig vrijblijvend</div>
               </div>
             </a>
 

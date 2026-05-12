@@ -1,3 +1,5 @@
+import Link from 'next/link'
+
 function LunevoMark() {
   return (
     <svg width="18" height="18" viewBox="0 0 22 22" fill="none" aria-hidden="true">
@@ -11,18 +13,19 @@ export default function Footer() {
   return (
     <footer className="border-t border-white/5 py-8 px-4 sm:px-6">
       <div className="max-w-6xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-4">
-        <div className="flex items-center gap-2">
+        <Link href="/" className="flex items-center gap-2">
           <LunevoMark />
           <span className="font-bold text-sm">
             Lu<span className="text-indigo-400">nevo</span>
           </span>
-        </div>
-        <p className="text-slate-500 text-xs text-center">
+        </Link>
+        <p className="text-slate-400 text-xs text-center">
           © {new Date().getFullYear()} Lunevo — Webbureau, België
+          <span className="block sm:inline sm:ml-2 text-slate-500">BTW BE 1036.645.433</span>
         </p>
-        <div className="flex gap-4 text-xs text-slate-500">
-          <a href="#" className="hover:text-slate-300 transition-colors">Privacy</a>
-          <a href="#contact" className="hover:text-slate-300 transition-colors">Contact</a>
+        <div className="flex gap-4 text-xs text-slate-400">
+          <Link href="#" className="underline underline-offset-2 hover:text-white transition-colors">Privacy</Link>
+          <Link href="/contact" className="underline underline-offset-2 hover:text-white transition-colors">Contact</Link>
         </div>
       </div>
     </footer>
