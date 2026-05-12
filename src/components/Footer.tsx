@@ -3,8 +3,8 @@ import Link from 'next/link'
 function LunevoMark() {
   return (
     <svg width="18" height="18" viewBox="0 0 22 22" fill="none" aria-hidden="true">
-      <rect x="1" y="6" width="13" height="13" rx="2.5" stroke="#6366f1" strokeWidth="1.8" />
-      <rect x="8" y="1" width="13" height="13" rx="2.5" fill="rgba(99,102,241,0.18)" stroke="#6366f1" strokeWidth="1.8" />
+      <rect x="1" y="6" width="13" height="13" rx="2.5" stroke="#ff9e3b" strokeWidth="1.8" />
+      <rect x="8" y="1" width="13" height="13" rx="2.5" fill="rgba(255,158,59,0.18)" stroke="#ff9e3b" strokeWidth="1.8" />
     </svg>
   )
 }
