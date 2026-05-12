@@ -16,7 +16,7 @@ export default function Footer() {
         <Link href="/" className="flex items-center gap-2">
           <LunevoMark />
           <span className="font-bold text-sm">
-            Lu<span className="text-indigo-400">nevo</span>
+            Lu<span style={{ color: '#ff9e3b' }}>nevo</span>
           </span>
         </Link>
         <p className="text-slate-400 text-xs text-center">
