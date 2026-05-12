@@ -47,7 +47,7 @@ export default function Hero() {
             />
             Beschikbaar voor projecten
           </span>
-          <span className="font-mono-label">Studio · Belgium · Est. 2024</span>
+          <span className="font-mono-label">Studio · Belgium · Est. 2026</span>
         </div>
 
         {/* Two-column layout: headline+copy left, cards right */}
