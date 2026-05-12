@@ -23,10 +23,12 @@ export default function Footer() {
           © {new Date().getFullYear()} Lunevo — Webbureau, België
           <span className="block sm:inline sm:ml-2 text-slate-500">BTW BE 1036.645.433</span>
         </p>
-        <div className="flex gap-4 text-xs text-slate-400">
-          <Link href="#" className="underline underline-offset-2 hover:text-white transition-colors">Privacy</Link>
-          <Link href="/contact" className="underline underline-offset-2 hover:text-white transition-colors">Contact</Link>
-        </div>
+        <a
+          href="#contact"
+          className="text-xs text-slate-400 underline underline-offset-2 hover:text-white transition-colors"
+        >
+          Contact
+        </a>
       </div>
     </footer>
   )
