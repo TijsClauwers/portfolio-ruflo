@@ -646,7 +646,7 @@ const faqs = [
   },
   {
     q: 'Kan ik mijn content zelf aanpassen na oplevering?',
-    a: 'Ja. We integreren Sanity CMS of WordPress zodat u teksten, foto\'s en pagina\'s zelf beheert via een eenvoudig dashboard. Geen technische kennis nodig.',
+    a: 'Ja. We bouwen een maatwerk WordPress-template waarbij u zelf foto\'s vervangt, evenementen toevoegt en nieuws plaatst — zonder ontwikkelaar te bellen. Volledige pagina\'s aanpassen of nieuwe secties toevoegen doen wij voor u.',
   },
 ]
 
@@ -841,6 +841,7 @@ export default function HomePage() {
       <Portfolio />
       <Why />
       <Faq />
+      <Contact />
       <Footer />
     </main>
   )
