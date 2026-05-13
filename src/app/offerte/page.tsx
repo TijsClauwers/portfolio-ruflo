@@ -39,10 +39,10 @@ const functieOptions = [
 ]
 
 const deadlineOptions = [
-  { value: '2 weken',       label: '2 weken',       sub: ''          },
-  { value: '4 weken',       label: '4 weken',       sub: 'Standaard' },
-  { value: '1–2 maanden',   label: '1–2 maanden',   sub: ''          },
-  { value: 'Nog niet zeker', label: 'Nog niet zeker', sub: ''         },
+  { value: '2 weken',        label: '2 weken',        sub: 'Zo snel mogelijk' },
+  { value: '4 weken',        label: '4 weken',        sub: 'Standaard'        },
+  { value: '1–2 maanden',    label: '1–2 maanden',    sub: 'Geen haast'       },
+  { value: 'Nog niet zeker', label: 'Nog niet zeker', sub: 'We bekijken het'  },
 ]
 
 /* ── Shared styles ───────────────────────────────────────── */
