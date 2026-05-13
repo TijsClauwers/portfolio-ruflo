@@ -108,12 +108,12 @@ const services = [
     flag: null,
     detail: {
       heading: 'Uw website in goede handen',
-      why: 'Een website die offline gaat, gehackt wordt of traag laadt kost u klanten én vertrouwen. De meeste problemen ontstaan door verwaarloosde updates of ontbrekende beveiliging. Wij voorkomen dat — proactief, maand na maand.',
+      why: 'Een website die offline gaat, gehackt wordt of traag laadt kost u klanten én vertrouwen. De meeste problemen ontstaan door verwaarloosde updates of ontbrekende beveiliging. Wij voorkomen dat, proactief, maand na maand.',
       bullets: [
         'Nooit onverwacht offline: wij monitoren uw site 24/7',
         'Automatische updates voor veiligheid en snelheid',
         'Bij problemen reageren wij binnen de dag',
-        'U focust op uw zaak — wij zorgen voor de techniek',
+        'U focust op uw zaak, wij zorgen voor de techniek',
         'Eén vast maandelijks bedrag, geen verrassingen',
       ],
     },
@@ -127,9 +127,9 @@ const services = [
     flag: null,
     detail: {
       heading: 'Gevonden worden terwijl u slaapt',
-      why: '93% van alle online ervaringen begint met een zoekmachine. Als uw website niet op pagina 1 van Google staat, bent u voor de meeste potentiële klanten praktisch onzichtbaar. SEO lost dat op — structureel en duurzaam.',
+      why: '93% van alle online ervaringen begint met een zoekmachine. Als uw website niet op pagina 1 van Google staat, bent u voor de meeste potentiële klanten praktisch onzichtbaar. SEO lost dat op, structureel en duurzaam.',
       bullets: [
-        'Klanten zoeken actief naar wat u aanbiedt — wij zorgen dat ze u vinden',
+        'Klanten zoeken actief naar wat u aanbiedt: wij zorgen dat ze u vinden',
         'Razendsnel ladende website = betere Google-positie én gelukkigere bezoekers',
         'Geen maandelijkse advertentiekosten: organisch verkeer is gratis',
         'Technisch correcte structuur zodat Google elke pagina begrijpt',
@@ -141,18 +141,18 @@ const services = [
     idx: '03 / 04',
     glyph: '∞',
     title: <><em style={{ fontStyle: 'italic', color: 'var(--accent)' }}>LLM</em> SEO-optimalisatie</>,
-    desc: 'Nu ook vindbaar in ChatGPT, Perplexity en Google AI. De nieuwe generatie zoeken — wees er vroeg bij.',
+    desc: 'Nu ook vindbaar in ChatGPT, Perplexity en Google AI. De nieuwe generatie zoeken is hier. Wees er vroeg bij.',
     tags: ['ChatGPT', 'Google AI', 'Perplexity'],
     flag: 'Nieuw',
     detail: {
       heading: 'De toekomst van zoeken is hier',
-      why: 'Steeds meer mensen stellen vragen aan ChatGPT, Google AI of Perplexity in plaats van zelf te zoeken. Zij vragen: "Welk webbureau in België is goed voor kleine bedrijven?" — en de AI geeft direct een aanbeveling. Als uw website niet begrijpbaar is voor AI, bent u onzichtbaar.',
+      why: 'Steeds meer mensen stellen vragen aan ChatGPT, Google AI of Perplexity in plaats van zelf te zoeken. Zij vragen: "Welk webbureau in België is goed voor kleine bedrijven?" en de AI geeft direct een aanbeveling. Als uw website niet begrijpbaar is voor AI, bent u onzichtbaar.',
       bullets: [
         'Wij optimaliseren uw website zodat AI-modellen u kunnen lezen en begrijpen',
         'Vroeg instappen = grote voorsprong op concurrenten die dit nog niet doen',
         'Correct gestructureerde data zodat uw merk positief geciteerd kan worden',
         'Speciaal llms.txt-bestand en FAQ-structuur die AI-assistenten herkennen',
-        'Miljoenen mensen gebruiken dagelijks AI als zoekmachine — wees klaar',
+        'Miljoenen mensen gebruiken dagelijks AI als zoekmachine. Wees klaar.',
       ],
     },
   },
@@ -160,12 +160,12 @@ const services = [
     idx: '04 / 04',
     glyph: 'C',
     title: <>Maatwerk <em style={{ fontStyle: 'italic', color: 'var(--accent)' }}>CMS</em></>,
-    desc: 'Op maat gebouwde WordPress-templates zodat u zelf foto\'s vervangt, evenementen toevoegt en nieuws plaatst — zonder ontwikkelaar te bellen.',
+    desc: 'Op maat gebouwde WordPress-templates zodat u zelf foto\'s vervangt, evenementen toevoegt en nieuws plaatst, zonder ontwikkelaar te bellen.',
     tags: ['WordPress', 'Foto\'s beheren', 'Evenementen'],
     flag: null,
     detail: {
       heading: 'Uw website, uw content',
-      why: 'Wij bouwen een maatwerk WordPress-template volledig afgestemd op uw merk. Daarna beheert u zelf de dagelijkse content: foto\'s vervangen, evenementen toevoegen, nieuwtjes plaatsen. Volledige pagina\'s aanpassen of nieuwe secties toevoegen doen wij voor u — snel en zonder grote kosten.',
+      why: 'Wij bouwen een maatwerk WordPress-template volledig afgestemd op uw merk. Daarna beheert u zelf de dagelijkse content: foto\'s vervangen, evenementen toevoegen, nieuwtjes plaatsen. Volledige pagina\'s aanpassen of nieuwe secties toevoegen doen wij voor u, snel en zonder grote kosten.',
       bullets: [
         'Foto\'s en afbeeldingen zelf vervangen via een eenvoudig dashboard',
         'Evenementen en nieuws toevoegen zonder technische kennis',
@@ -277,7 +277,7 @@ function Services() {
         <SecHead
           eyebrow="§ 01 — Diensten"
           title={<>Wat wij<br /><span style={{ fontStyle: 'italic' }}>aanbieden.</span></>}
-          right="Alles wat uw bedrijf online nodig heeft — ontwerp, ontwikkeling en vindbaarheid. Inclusief de nieuwe realiteit: gevonden worden in ChatGPT, Perplexity en Google AI."
+          right="Ontwerp, ontwikkeling en vindbaarheid. Inclusief de nieuwe realiteit: gevonden worden in ChatGPT, Perplexity en Google AI."
         />
         <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: 16 }}>
           {services.map((s) => <ServiceCard key={s.idx} s={s} />)}
@@ -290,8 +290,8 @@ function Services() {
 /* ── Process ─────────────────────────────────────────────── */
 const steps = [
   { n: '01', dur: 'Week 1',    title: 'Vrijblijvend gesprek', desc: 'We leren uw bedrijf kennen. Wat moet de site bereiken? Wie is uw klant? Geen technische kennis vereist.' },
-  { n: '02', dur: 'Week 2',    title: 'Ontwerp op maat',      desc: 'We ontwerpen vanuit uw merk. U krijgt previews en volgt de voortgang live mee — zodat u altijd weet waar het naartoe gaat.' },
-  { n: '03', dur: 'Week 3–4',  title: 'Ontwikkeling',         desc: 'We bouwen in Next.js of WordPress — afhankelijk van uw budget en noden. Snel, veilig, volledig op maat.' },
+  { n: '02', dur: 'Week 2',    title: 'Ontwerp op maat',      desc: 'We ontwerpen vanuit uw merk. U krijgt previews en volgt de voortgang live mee, zodat u altijd weet waar het naartoe gaat.' },
+  { n: '03', dur: 'Week 3–4',  title: 'Ontwikkeling',         desc: 'We bouwen in Next.js of WordPress, afhankelijk van uw budget en noden. Snel, veilig, volledig op maat.' },
   { n: '04', dur: 'Lopend',    title: 'Lancering & beheer',   desc: 'Live op uw domein, getest op elk toestel. Daarna zorgen wij voor onderhoud zodat u zich kunt focussen.' },
 ]
 
@@ -302,7 +302,7 @@ function Process() {
         <SecHead
           eyebrow="§ 02 — Proces"
           title={<>Hoe werkt<br /><span style={{ fontStyle: 'italic' }}>het?</span></>}
-          right="Vier stappen van brief tot live — helder, persoonlijk en zonder verrassingen."
+          right="Vier stappen van brief tot live. Helder, persoonlijk en zonder verrassingen."
         />
         <div style={{ position: 'relative' }}>
           <div className="process-line" style={{ position: 'absolute', top: 30, left: '5%', right: '5%', height: 1, background: 'linear-gradient(90deg, transparent, var(--rule-2) 10%, var(--rule-2) 90%, transparent)' }} />
@@ -537,7 +537,7 @@ function Portfolio() {
                 </a>
               </div>
               <p style={{ fontSize: 13.5, lineHeight: 1.65, color: 'var(--ink-2)' }}>
-                Website met evenementeninformatie en een live leaderboard dat toont wie het meeste uitgeeft — rechtstreeks gesynchroniseerd met het op maat gebouwde kassasysteem.
+                Website met evenementeninformatie en een live leaderboard dat toont wie het meeste uitgeeft, rechtstreeks gesynchroniseerd met het op maat gebouwde kassasysteem.
               </p>
               <div style={{ display: 'flex', flexWrap: 'wrap', gap: 5, marginTop: 4 }}>
                 {['WordPress', 'Python', 'Kassa-integratie', 'Leaderboard'].map((t) => (
@@ -562,8 +562,8 @@ function Portfolio() {
 
 /* ── Why ─────────────────────────────────────────────────── */
 const pillars = [
-  { glyph: '⌂', title: 'Lokale partner',       desc: 'Persoonlijke afspraken zijn altijd mogelijk — geen gezichtsloos bureau, geen ticket-systeem.', footL: 'LOC',   footR: 'BE · NL'  },
-  { glyph: '⇄', title: 'Direct contact',        desc: 'Geen contactformulieren die verdwijnen. U bereikt ons direct — snel, eerlijk en zonder omwegen.', footL: 'SLA',   footR: '< 24u'    },
+  { glyph: '⌂', title: 'Lokale partner',       desc: 'Persoonlijke afspraken zijn altijd mogelijk. Geen gezichtsloos bureau, geen ticket-systeem.', footL: 'LOC',   footR: 'BE · NL'  },
+  { glyph: '⇄', title: 'Direct contact',        desc: 'Geen contactformulieren die verdwijnen. U bereikt ons direct, snel, eerlijk en zonder omwegen.', footL: 'SLA',   footR: '< 24u'    },
   { glyph: '€', title: 'Geen verborgen kosten', desc: 'Transparante offertes, heldere communicatie en geen verrassingen op de factuur.', footL: 'PRIJS', footR: 'VAST'    },
 ]
 
@@ -630,11 +630,11 @@ function Why() {
 const faqs = [
   {
     q: 'Wat kost een website bij Lunevo?',
-    a: 'Prijzen starten vanaf €500 voor een WordPress website. Maatwerk Next.js projecten starten vanaf €1.000. Alle offertes zijn transparant en vrijblijvend — geen verborgen kosten.',
+    a: 'Prijzen starten vanaf €500 voor een WordPress website. Maatwerk Next.js projecten starten vanaf €1.000. Alle offertes zijn transparant en vrijblijvend. Geen verborgen kosten.',
   },
   {
     q: 'Hoe lang duurt het bouwen van een website?',
-    a: 'Van brief tot live duurt het gemiddeld 1 tot 4 weken, afhankelijk van de complexiteit. U krijgt tussentijdse previews en volgt de voortgang live mee — zo weet u altijd waar het naartoe gaat.',
+    a: 'Van brief tot live duurt het gemiddeld 1 tot 4 weken, afhankelijk van de complexiteit. U krijgt tussentijdse previews en volgt de voortgang live mee, zodat u altijd weet waar het naartoe gaat.',
   },
   {
     q: 'Werkt Lunevo ook met WordPress?',
@@ -642,11 +642,11 @@ const faqs = [
   },
   {
     q: 'Wat is LLM SEO en waarom heb ik het nodig?',
-    a: 'We optimaliseren uw website zodat AI-assistenten zoals ChatGPT en Perplexity ze zo goed mogelijk kunnen lezen en begrijpen. Of u effectief aanbevolen wordt, kan niemand garanderen — maar een correct gestructureerde site geeft u de beste kans.',
+    a: 'We optimaliseren uw website zodat AI-assistenten zoals ChatGPT en Perplexity ze zo goed mogelijk kunnen lezen en begrijpen. Of u effectief aanbevolen wordt, kan niemand garanderen. Een correct gestructureerde site geeft u wel de beste kans.',
   },
   {
     q: 'Kan ik mijn content zelf aanpassen na oplevering?',
-    a: 'Ja. We bouwen een maatwerk WordPress-template waarbij u zelf foto\'s vervangt, evenementen toevoegt en nieuws plaatst — zonder ontwikkelaar te bellen. Volledige pagina\'s aanpassen of nieuwe secties toevoegen doen wij voor u.',
+    a: 'Ja. We bouwen een maatwerk WordPress-template waarbij u zelf foto\'s vervangt, evenementen toevoegt en nieuws plaatst, zonder ontwikkelaar te bellen. Volledige pagina\'s aanpassen of nieuwe secties toevoegen doen wij voor u.',
   },
 ]
 
@@ -775,7 +775,7 @@ function Contact() {
               <span style={{ fontStyle: 'italic', color: 'var(--accent)' }}>te gaan?</span>
             </h2>
             <p style={{ marginTop: 32, color: 'var(--ink-2)', maxWidth: '38ch', fontSize: 17, lineHeight: 1.5 }}>
-              Stuur een bericht of vul het offerte-formulier in. Wij antwoorden binnen de 24 uur — gratis eerste gesprek, zonder verplichtingen.
+              Stuur een bericht of vul het offerte-formulier in. Wij antwoorden binnen de 24 uur. Gratis eerste gesprek, zonder verplichtingen.
             </p>
           </div>
 

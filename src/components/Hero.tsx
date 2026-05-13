@@ -85,7 +85,7 @@ export default function Hero() {
             </h1>
 
             <p style={{ fontSize: 18, lineHeight: 1.6, color: 'var(--ink-2)', maxWidth: '46ch', marginTop: 36 }}>
-              Van lokale KMO&apos;s tot gedurfde merken — <strong style={{ color: 'var(--ink)', fontWeight: 600 }}>wij bouwen snelle, mooie digitale
+              Van lokale KMO&apos;s tot gedurfde merken: <strong style={{ color: 'var(--ink)', fontWeight: 600 }}>wij bouwen snelle, mooie digitale
               ervaringen</strong> op maat van uw verhaal. Ontwerp, code en vindbaarheid in één hand.
             </p>
 
