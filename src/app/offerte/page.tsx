@@ -39,10 +39,10 @@ const functieOptions = [
 ]
 
 const deadlineOptions = [
-  { value: 'Zo snel mogelijk',  label: 'Zo snel mogelijk' },
-  { value: '1–2 maanden',       label: '1–2 maanden'      },
-  { value: '3+ maanden',        label: '3+ maanden'       },
-  { value: 'Nog niet zeker',    label: 'Nog niet zeker'   },
+  { value: '2 weken',       label: '2 weken',       sub: ''          },
+  { value: '4 weken',       label: '4 weken',       sub: 'Standaard' },
+  { value: '1–2 maanden',   label: '1–2 maanden',   sub: ''          },
+  { value: 'Nog niet zeker', label: 'Nog niet zeker', sub: ''         },
 ]
 
 /* ── Shared styles ───────────────────────────────────────── */
@@ -257,6 +257,11 @@ function Step3({ data, set }: { data: FormData; set: (d: Partial<FormData>) => v
                 >
                   {d.label}
                 </div>
+                {d.sub && (
+                  <div style={{ fontSize: 11, color: 'var(--mute)', marginTop: 4, letterSpacing: '.04em', textTransform: 'uppercase' }}>
+                    {d.sub}
+                  </div>
+                )}
               </button>
             )
           })}
