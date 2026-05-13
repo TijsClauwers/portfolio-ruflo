@@ -8,7 +8,7 @@ import Footer from '@/components/Footer'
 /* ── Shared wrap ─────────────────────────────────────────── */
 function Wrap({ children, style }: { children: React.ReactNode; style?: React.CSSProperties }) {
   return (
-    <div style={{ maxWidth: 1360, margin: '0 auto', padding: '0 40px', position: 'relative', ...style }}>
+    <div className="site-wrap" style={{ maxWidth: 1360, margin: '0 auto', padding: '0 40px', position: 'relative', ...style }}>
       {children}
     </div>
   )
@@ -18,6 +18,7 @@ function Wrap({ children, style }: { children: React.ReactNode; style?: React.CS
 function SecHead({ eyebrow, title, right }: { eyebrow: string; title: React.ReactNode; right?: string }) {
   return (
     <div
+      className="sec-head"
       style={{
         display: 'grid',
         gridTemplateColumns: right ? '1fr 1fr' : '1fr',
@@ -301,11 +302,11 @@ function Process() {
         <SecHead
           eyebrow="§ 02 — Proces"
           title={<>Hoe werkt<br /><span style={{ fontStyle: 'italic' }}>het?</span></>}
-          right="Vier stappen, ca. 1–4 weken van brief tot live. Helder, persoonlijk en zonder verrassingen."
+          right="Vier stappen van brief tot live — helder, persoonlijk en zonder verrassingen."
         />
         <div style={{ position: 'relative' }}>
-          <div style={{ position: 'absolute', top: 30, left: '5%', right: '5%', height: 1, background: 'linear-gradient(90deg, transparent, var(--rule-2) 10%, var(--rule-2) 90%, transparent)' }} />
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)', gap: 32, position: 'relative' }}>
+          <div className="process-line" style={{ position: 'absolute', top: 30, left: '5%', right: '5%', height: 1, background: 'linear-gradient(90deg, transparent, var(--rule-2) 10%, var(--rule-2) 90%, transparent)' }} />
+          <div className="process-grid" style={{ display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)', gap: 32, position: 'relative' }}>
             {steps.map((s) => (
               <div key={s.n} style={{ display: 'flex', flexDirection: 'column', gap: 14 }}>
                 <div
@@ -321,7 +322,6 @@ function Process() {
                   {s.n}
                   <span style={{ position: 'absolute', inset: -6, borderRadius: '50%', border: '1px dashed rgba(255,158,59,.2)' }} />
                 </div>
-                <span className="font-mono-label" style={{ marginTop: 4 }}>{s.dur}</span>
                 <h3 style={{ fontFamily: 'var(--font-bricolage), sans-serif', fontWeight: 500, fontSize: 22, letterSpacing: '-0.02em' }}>
                   {s.title}
                 </h3>
@@ -577,7 +577,7 @@ function Why() {
           right="Professioneel ontwerp en ontwikkeling met de persoonlijke aandacht die grote bureaus simpelweg niet kunnen bieden."
         />
 
-        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: 16 }}>
+        <div className="why-grid" style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: 16 }}>
           {pillars.map((p) => (
             <div
               key={p.title}

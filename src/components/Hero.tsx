@@ -121,7 +121,7 @@ export default function Hero() {
             </div>
 
             {/* Stats */}
-            <div style={{ display: 'flex', gap: 40, marginTop: 40 }}>
+            <div className="hero-stats" style={{ display: 'flex', gap: 40, marginTop: 40 }}>
               {[
                 { v: '<2s',    l: 'Gemiddelde laadtijd'    },
                 { v: '98/100', l: 'Lighthouse performance' },

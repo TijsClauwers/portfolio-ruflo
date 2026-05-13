@@ -74,3 +74,17 @@ body {
   0%, 100% { transform: translateY(0); }
   50% { transform: translateY(-6px); }
 }
+
+/* ── Mobile ───────────────────────────────────────────────── */
+@media (max-width: 768px) {
+  .site-wrap { padding: 0 20px !important; }
+  .sec-head { grid-template-columns: 1fr !important; }
+  .process-grid { grid-template-columns: repeat(2, 1fr) !important; gap: 24px !important; }
+  .process-line { display: none !important; }
+  .why-grid { grid-template-columns: 1fr !important; }
+  .hero-stats { flex-wrap: wrap; gap: 24px !important; }
+}
+
+@media (max-width: 480px) {
+  .process-grid { grid-template-columns: 1fr !important; }
+}
