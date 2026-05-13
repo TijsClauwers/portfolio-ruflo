@@ -39,10 +39,10 @@ const functieOptions = [
 ]
 
 const deadlineOptions = [
-  { value: 'Zo snel mogelijk',  label: 'Zo snel mogelijk', sub: '< 4 weken' },
-  { value: '1–2 maanden',       label: '1–2 maanden',      sub: 'Standaard' },
-  { value: '3+ maanden',        label: '3+ maanden',       sub: 'Flexibel'  },
-  { value: 'Nog niet zeker',    label: 'Nog niet zeker',   sub: 'We bekijken het' },
+  { value: 'Zo snel mogelijk',  label: 'Zo snel mogelijk' },
+  { value: '1–2 maanden',       label: '1–2 maanden'      },
+  { value: '3+ maanden',        label: '3+ maanden'       },
+  { value: 'Nog niet zeker',    label: 'Nog niet zeker'   },
 ]
 
 /* ── Shared styles ───────────────────────────────────────── */
@@ -257,9 +257,6 @@ function Step3({ data, set }: { data: FormData; set: (d: Partial<FormData>) => v
                 >
                   {d.label}
                 </div>
-                <div style={{ fontSize: 11, color: 'var(--mute)', marginTop: 4, letterSpacing: '.04em', textTransform: 'uppercase' }}>
-                  {d.sub}
-                </div>
               </button>
             )
           })}
@@ -327,7 +324,7 @@ function Step4({ data, set }: { data: FormData; set: (d: Partial<FormData>) => v
 const stepTitles = [
   { eyebrow: 'Stap 1 van 4', title: 'Over u',           sub: 'Wie mogen wij verwachten?' },
   { eyebrow: 'Stap 2 van 4', title: 'Uw website',       sub: 'Wat wilt u laten bouwen?'  },
-  { eyebrow: 'Stap 3 van 4', title: 'Budget & planning', sub: 'Wat zijn uw wensen?'       },
+  { eyebrow: 'Stap 3 van 4', title: 'Planning',           sub: 'Wanneer wilt u live gaan?' },
   { eyebrow: 'Stap 4 van 4', title: 'Laatste details',   sub: 'Bijna klaar!'              },
 ]
 
